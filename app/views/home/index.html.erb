@@ -1,0 +1,11 @@
+<h1>MyShop</h1>
+
+<% if shopkeeper_signed_in? %>
+  <h2>ログインしています</h2>
+  <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
+<% else %>
+  <h2>ログインしていません<h2>
+  <%= link_to "出店する", new_shopkeeper_registration_path %>
+  <%= link_to "ログイン", new_shopkeeper_session_path %>
+<% end %>
+
