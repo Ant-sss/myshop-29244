@@ -1,6 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :customer, optional: true
   belongs_to :shop_keeper, optional: true
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
   POSTAL_REGEX = /\A\d{3}[-]\d{4}\z/
