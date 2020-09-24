@@ -9,6 +9,7 @@
 belongs_to :shopkeeper
 has_many :items
 has_many :tweets
+has_one_
 
 # shopkeeper テーブル
 | Column          | Type       | Options                        |
