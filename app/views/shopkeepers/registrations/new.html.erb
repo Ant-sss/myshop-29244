@@ -4,27 +4,29 @@
   <%= render "devise/shared/error_messages", resource: @shopkeeper %>
 
   <div class="field">
-    <%= f.label :family_name %><br />
+    <label>苗字</label><br />
     <%= f.text_field :family_name %>
   </div>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <label>名前</label><br />
     <%= f.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= f.label :phone_num %><br />
+    <label>電話番号</label><br />
     <%= f.text_field :phone_num %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <label>メールアドレス</label><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-    <div class="field">
-    <%= f.label :birthday %><br />
+  <div class="field">
+      <div class='form-text-wrap'>
+        <label class="form-text">生年月日</label>
+      </div>
     <div class='input-birth-wrap'>
       <%= raw sprintf(
                   f.date_select(
@@ -38,9 +40,10 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
+  </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <label>パスワード</label>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -48,7 +51,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <label>パスワード（確認用）</label><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
