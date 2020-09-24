@@ -15,17 +15,17 @@ class Customers::RegistrationsController < Devise::RegistrationsController
       end
     session["devise.regist_data"] = { customer:@customer.attributes }
     session["devise.regist_data"][:customer]["password"] = params[:customer][:password]
-    @address = @customer.build_address
-    render :new_address
+    @residence = @customer.build_residence
+    render :new_residence
   end
 
-  def create_address
+  def create_residence
     @customer = Customer.new(session["devise.regist_data"]["customer"])
-    @address = Address.new(address_params)
-      unless @address.valid?
-        render :new_address
+    @residence = Residence.new(residence_params)
+      unless @residence.valid?
+        render :new_residence
       end
-    @customer.build_address(@address.attributes)
+    @customer.build_residence(@residence.attributes)
     @customer.save
     session["devise.regist_data"]["customer"].clear
     sign_in(:customer, @customer)
@@ -33,8 +33,8 @@ class Customers::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def address_params
-    params.requiadre(:address).permit(:postal_code, :prefecture_id, :city, :house_num, :building_name)
+  def residence_params
+    params.require(:residence).permit(:postal_code, :prefecture_id, :city, :house_num, :building_name)
   end
   # GET /resource/sign_up
   # def new

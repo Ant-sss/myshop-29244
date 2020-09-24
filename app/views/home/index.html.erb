@@ -1,6 +1,6 @@
 <h1>MyShop</h1>
 
-<% if shopkeeper_signed_in? %>
+<% if shopkeeper_signed_in? || customer_signed_in? %>
   <h2>ログインしています</h2>
   <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
 <% else %>

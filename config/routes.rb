@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     passwords: 'customers/passwords'
   }
   devise_scope :customer do
-    get 'addresses', to: 'customers/registrations#new_address'
-    post 'addresses', to: 'customers/registrations#new_address'
+    get 'residences', to: 'customers/registrations#new_residence'
+    post 'residences', to: 'customers/registrations#create_residence'
   end
 
   devise_for :shopkeepers, controllers: {
@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :shop, only: [:index]
   root to: "home#index"
-  
+
 end

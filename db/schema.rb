@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_001818) do
+ActiveRecord::Schema.define(version: 2020_09_24_020831) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 2020_09_24_001818) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code"
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_num", null: false
+    t.string "building_name"
+    t.bigint "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_residences_on_customer_id"
   end
 
   create_table "shopkeepers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
