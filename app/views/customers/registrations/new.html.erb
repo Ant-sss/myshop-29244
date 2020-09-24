@@ -46,9 +46,9 @@
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
   </div>
-  
+
   <div class="field">
-    <%= f.label :password %>
+    <label>パスワード</label>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -56,7 +56,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <label>パスワード（確認用）</label><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

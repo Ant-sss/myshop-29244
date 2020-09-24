@@ -21,10 +21,10 @@ ja:
         invalid: が正しくありません
         other_than: を選択してください
         not_a_number: は半角数字で入力してください
-
+        
   activerecord:
     attributes:
-      scustomer:
+      customer:
         nickname: ニックネーム
         family_name: 苗字
         first_name: 名前
