@@ -1,0 +1,20 @@
+<h1>MyShop</h1>
+
+<% if customer_signed_in? %>
+  <h2>ログインしています</h2>
+  <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
+<% elsif shopkeeper_signed_in? && current_shopkeeper.shop.nil? %>
+  <div class="link_to_shop" >
+    引き続き店舗の設定を行いましょう！
+    <%= link_to '店舗の設定を行う', '/shops/new' %>
+    <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
+  </div>
+<% elsif shopkeeper_signed_in? && current_shopkeeper.shop.present? %>
+  <%= link_to '店舗へ', shops_path(current_shopkeeper) %>
+  <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
+<% else %>
+  <h2>ログインしていません<h2>
+  <%= link_to "出店する", new_shopkeeper_registration_path %>
+  <%= link_to "新規登録", new_customer_registration_path %>
+  <%= link_to "ログイン", new_shopkeeper_session_path %>
+<% end %>

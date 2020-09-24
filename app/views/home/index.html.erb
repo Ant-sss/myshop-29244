@@ -1,12 +1,10 @@
-<h1>MyShop</h1>
+<%= render 'shared/header'%>
 
-<% if shopkeeper_signed_in? || customer_signed_in? %>
-  <h2>ログインしています</h2>
-  <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
-<% else %>
-  <h2>ログインしていません<h2>
-  <%= link_to "出店する", new_shopkeeper_registration_path %>
-  <%= link_to "新規登録", new_customer_registration_path %>
-  <%= link_to "ログイン", new_shopkeeper_session_path %>
-<% end %>
+<div class="main">
+  <% @shops.each do |shop| %>
+    <%= link_to shop_path(shop.id) do %>
+      <%= shop.name %>
+    <% end %>
+  <% end %>
+</div>
 

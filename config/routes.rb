@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: [:index]
-  resources :shop, only: [:index]
+  resources :shops, only: [:show, :new, :create]
   root to: "home#index"
 
 end
