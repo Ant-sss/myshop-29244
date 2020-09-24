@@ -1,6 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :customer, optional: true
-  belongs_to :shop_keeper, optional: true
+  belongs_to :shopkeeper, optional: true
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 

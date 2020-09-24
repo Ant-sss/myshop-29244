@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_080002) do
+ActiveRecord::Schema.define(version: 2020_09_24_001818) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
@@ -18,12 +18,27 @@ ActiveRecord::Schema.define(version: 2020_09_23_080002) do
     t.string "city", null: false
     t.string "house_num", null: false
     t.string "building_name"
-    t.bigint "customer_id"
     t.bigint "shopkeeper_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_addresses_on_customer_id"
     t.index ["shopkeeper_id"], name: "index_addresses_on_shopkeeper_id"
+  end
+
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "phone_num", null: false
+    t.date "birthday", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "shopkeepers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
