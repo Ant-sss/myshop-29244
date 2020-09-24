@@ -1,0 +1,24 @@
+<h2>出店</h2>
+  <div class="main">
+  <%= form_with model: @shop, local:true do |f| %>
+    <%= render 'shared/error_messages', model: @shop %>
+    <div class="shop_index">
+      店名
+      <%= f.text_area :name, class:"shop_name", placeholder:"店名（必須 40文字まで）", maxlength:"40" %>
+    </div>
+    </div class="shop_index">
+      店の種類
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"shop_category"}) %>
+    <div class="shop_index">
+      店舗の説明
+      <%= f.text_area :text, class:"shop_text", placeholder:"店舗の説明（必須 1,000文字まで）", maxlength:"1000" %>
+    </div>
+    <div class="shop_index">
+      店舗イメージ（クリックしてアップロード）
+      <%= f.file_field :image, class:"shop_image" %>
+    </div>
+    </div class="shop_complete">
+      <%= f.submit "出店する",class:"shop_open" %>
+    </div>
+  <% end %>
+  </div>
