@@ -54,11 +54,11 @@ belongs_to :customer
 | --------------- | ---------- | ------------------------------ |
 | name            | text       | null: false                    |
 | text            | references | null: false, foreign_key: true |
-| category_id     | integer    | null: false                    |
+| itemcategory_id     | integer    | null: false                    |
 | shipfrom_id     | integer    | null: false                    |
 | price           | integer    | null: false                    |
 | shop            | references | null: false, foreign_key: true |
-| customer        | references | null: false, foreign_key: true |
+| shopkeeper        | references | null: false, foreign_key: true |
 
 belongs_to :shop
 belongs_to :customer
