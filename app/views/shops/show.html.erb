@@ -12,7 +12,10 @@
     <%= @shop.text %>
   </div>
   <div class="shop_image">
-    <%= image_tag @shop.image %>
+    <%= image_tag(@shop.image) if @shop.image.attached? %>
+  </div>
+  <div class="item_btn">
+    <%= link_to "出品", '/shops/:shop_id/items/new' %>
   </div>
 </div>
 
