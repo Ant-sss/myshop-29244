@@ -1,7 +1,80 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# アクセサリー
+accessories = Itemcategory.create(name: "アクセサリー")
+accessories_1 = accessories.children.create(name: "ネックレス")
+accessories_2 = accessories.children.create(name: "チョーカー")
+accessories_3 = accessories.children.create(name: "ペンダント")
+accessories_4 = accessories.children.create(name: "ピアス")
+accessories_5 = accessories.children.create(name: "イヤリング")
+accessories_6 = accessories.children.create(name: "イヤーカフ")
+accessories_7 = accessories.children.create(name: "リング・指輪")
+accessories_8 = accessories.children.create(name: "ピンキーリング")
+accessories_9 = accessories.children.create(name: "ファランジリング")
+accessories_10 = accessories.children.create(name: "ブレスレット・バングル")
+accessories_11 = accessories.children.create(name: "ボディピアス")
+accessories_12 = accessories.children.create(name: "ブローチ・コサージュ")
+accessories_13 = accessories.children.create(name: "スカーフ")
+accessories_14 = accessories.children.create(name: "ヘアアクセサリー")
+accessories_15 = accessories.children.create(name: "その他")
+
+# 洋服
+
+clothes = Itemcategory.create(name: "洋服")
+clothes_1 = clothes.children.create(name: "トップス")
+clothes_2 = clothes.children.create(name: "パンツ")
+clothes_3 = clothes.children.create(name: "スカート")
+clothes_4 = clothes.children.create(name: "ワンピース")
+clothes_5 = clothes.children.create(name: "ジャケット")
+clothes_6 = clothes.children.create(name: "コート")
+clothes_8 = clothes.children.create(name: "ベビー用品")
+clothes_7 = clothes.children.create(name: "靴下")
+clothes_9 = clothes.children.create(name: "その他")
+
+# 雑貨
+goods = Itemcategory.create(name: "雑貨")
+goods_1 = goods.children.create(name: "手鏡・卓上ミラー")
+goods_2 = goods.children.create(name: "フォトフレーム・フォトスタンド")
+goods_3 = goods.children.create(name: "オーナメント・置物")
+goods_4 = goods.children.create(name: "ぬいぐるみ・人形")
+goods_5 = goods.children.create(name: "ティッシュケース")
+goods_6 = goods.children.create(name: "アロマグッズ・香炉")
+goods_7 = goods.children.create(name: "ルームフレグランス")
+goods_8 = goods.children.create(name: "植物")
+goods_9 = goods.children.create(name: "文具")
+goods_10 = goods.children.create(name: "その他")
+
+# 家具
+furnitures = Itemcategory.create(name: "家具")
+furnitures_1 = furnitures.children.create(name: "ソファ")
+furnitures_2 = furnitures.children.create(name: "チェア・椅子")
+furnitures_3 = furnitures.children.create(name: "テーブル・デスク")
+furnitures_4 = furnitures.children.create(name: "収納家具")
+furnitures_5 = furnitures.children.create(name: "ラグ・カーペット")
+furnitures_6 = furnitures.children.create(name: "子供家具")
+furnitures_7 = furnitures.children.create(name: "ペット家具")
+furnitures_8 = furnitures.children.create(name: "時計")
+furnitures_9 = furnitures.children.create(name: "観葉植物")
+furnitures_9 = furnitures.children.create(name: "その他")
+
+# 食べ物
+foods = Itemcategory.create(name: "食品")
+foods_1 = foods.children.create(name: "野菜")
+foods_2 = foods.children.create(name: "果物")
+foods_3 = foods.children.create(name: "飲み物")
+foods_4 = foods.children.create(name: "おやつ")
+foods_5 = foods.children.create(name: "その他")
+
+# 写真
+pictures = Itemcategory.create(name: "写真")
+pictures_1 = pictures.children.create(name: "自然写真")
+pictures_2 = pictures.children.create(name: "人物写真")
+pictures_3 = pictures.children.create(name: "人工物写真")
+pictures_4 = pictures.children.create(name: "その他")
+
+# 絵
+paintings = Itemcategory.create(name: "絵")
+paintings_1 = paintings.children.create(name: "水彩画・アクリル画")
+paintings_2 = paintings.children.create(name: "油絵・版画")
+paintings_3 = paintings.children.create(name: "パステル画")
+paintings_4 = paintings.children.create(name: "色鉛筆画")
+paintings_5 = paintings.children.create(name: "鉛筆画")
+paintings_6 = paintings.children.create(name: "その他")

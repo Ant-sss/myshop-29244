@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
+    @items = Item.all
   end
 
   def new
@@ -19,7 +20,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:name, :text, :category_id, :image).merge(shopkeeper_id: current_shopkeeper.id)
+    params.require(:shop).permit(:name, :text, :itemcategory_id, :image).merge(shopkeeper_id: current_shopkeeper.id)
   end
 
 end

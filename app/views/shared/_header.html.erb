@@ -10,7 +10,7 @@
     <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
   </div>
 <% elsif shopkeeper_signed_in? && current_shopkeeper.shop.present? %>
-  <%= link_to '店舗へ', shops_path(current_shopkeeper) %>
+  <%= link_to '店舗へ', shop_path(current_shopkeeper) %>
   <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
 <% else %>
   <h2>ログインしていません<h2>

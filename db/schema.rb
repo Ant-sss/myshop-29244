@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_052702) do
+ActiveRecord::Schema.define(version: 2020_09_25_133757) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,27 @@ ActiveRecord::Schema.define(version: 2020_09_24_052702) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "ancestry"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "text"
+    t.bigint "itemcategory_id"
+    t.integer "shipfrom_id", null: false
+    t.integer "price", null: false
+    t.bigint "shopkeeper_id", null: false
+    t.bigint "shop_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_items_on_shop_id"
+    t.index ["shopkeeper_id"], name: "index_items_on_shopkeeper_id"
+  end
+
   create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
     t.integer "prefecture_id", null: false
@@ -93,7 +114,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_052702) do
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "text", null: false
-    t.integer "category_id", null: false
+    t.bigint "itemcategory_id"
     t.bigint "shopkeeper_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -101,4 +122,6 @@ ActiveRecord::Schema.define(version: 2020_09_24_052702) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "shopkeepers"
+  add_foreign_key "items", "shops"
 end
