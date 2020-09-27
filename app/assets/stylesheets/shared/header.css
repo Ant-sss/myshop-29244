@@ -1,0 +1,27 @@
+.header {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  padding: 2vh 3vw;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;;
+}
+
+.top-header{
+  font-family: 'Secular One', sans-serif;
+}
+
+.myshop {
+  text-decoration: none;
+  color: black;
+}
+.user-header{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.header-user{
+  text-decoration: none;
+  margin-right: 8px;
+  color: black;
+}

@@ -1,0 +1,64 @@
+.top {
+  padding: 2vh 3vw;
+  display: flex;
+}
+
+.main-left {
+  width: 15vw;
+}
+
+.main-right {
+  width: calc(100% - 15vw);
+}
+
+.shops {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+.shops-list {
+  width: calc((100% - 100px) / 2);
+  height: 450px;
+  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  background-color: #F5F5F5;
+  margin: 5px 40px 5px 5px;
+}
+
+.shops-link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.shops-link:hover {
+  opacity: 0.75;
+  color: black;
+  text-decoration: underline;
+}
+
+.shop-name {
+  color: black;
+  font-size: 30px;
+  padding: 0 10px;
+}
+
+.shop-image{
+  width: 45vh;
+  height: 35vh;
+  margin: 5px 15px;
+}
+
+.shop-text{
+  color: black;
+  padding: 0 10px;
+}
+
+.main-left{
+  margin-top: 5px;
+  background-color: #F5F5F5;
+}

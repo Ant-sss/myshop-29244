@@ -14,10 +14,12 @@
   <div class="shop_image">
     <%= image_tag(@shop.image) %>
   </div>
+  <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
   <div class="item_btn">
     <%= link_to "出品", '/shops/:shop_id/items/new' %>
   </div>
 </div>
+<% end %>
 <div class="items_show">
   <% @items.each do |item| %>
     <div class="item_image">
