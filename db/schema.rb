@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_133757) do
     t.bigint "itemcategory_id"
     t.integer "shipfrom_id", null: false
     t.integer "price", null: false
-    t.bigint "shop_id", null: false
     t.bigint "shopkeeper_id", null: false
+    t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_items_on_shop_id"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_133757) do
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "text", null: false
-    t.integer "category_id", null: false
+    t.bigint "itemcategory_id"
     t.bigint "shopkeeper_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

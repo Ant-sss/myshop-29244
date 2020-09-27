@@ -12,10 +12,24 @@
     <%= @shop.text %>
   </div>
   <div class="shop_image">
-    <%= image_tag(@shop.image) if @shop.image.attached? %>
+    <%= image_tag(@shop.image) %>
   </div>
   <div class="item_btn">
     <%= link_to "出品", '/shops/:shop_id/items/new' %>
   </div>
 </div>
+<div class="items_show">
+  <% @items.each do |item| %>
+    <div class="item_image">
+      <%= image_tag(item.image) %>
+    </div>
+    <div class="item_image">
+      <%= item.name %>
+    </div>
+    <div class="item_image">
+      <%= item.price %>
+    </div>
+  <% end %>
+</div>
+    
 

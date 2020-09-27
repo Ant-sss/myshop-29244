@@ -1,11 +1,7 @@
-if (document.URL.match( /new/ )){
-  document.addEventListener('DOMContentLoaded', function(){
-    let category = document.getElementById('parent_category');
-    
+document.addEventListener("DOMContentLoaded", function(){
+  const itemCategory = document.getElementById("item_category");
+  itemCategory.addEventListener("change", function(){
 
-
-
-
-
+      console.log(123)
   });
-};
+});

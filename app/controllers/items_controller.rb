@@ -1,17 +1,15 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
-    @item_category_parent = Itemcategory.where(ancestry: nil)
-  end
-
-  def get_category_children
-    @item_category_children = Itemcategory.find("#{params[:parent_id]}").child
+    @itemcategory_parent = Itemcategory.where(ancestry: nil)
+    @accesories = Category.where(category_id: 1)
   end
   
   def create
     @item = Item.new(item_params)
+    # binding.pry
     if @item.save
-      redirect_to 'shops/show'
+      redirect_to shop_path(@item.shop.id)
     else
       render :new
     end
@@ -20,6 +18,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :text, :shipfrom_id, :price).merge(shopkeeper_id: current_shopkeeper.id)
+    params.permit(:name, :text, :itemcategory_id, :shipfrom_id, :price, :image).merge(shopkeeper_id: current_shopkeeper.id, shop_id: current_shopkeeper.shop.id)
   end
+
 end

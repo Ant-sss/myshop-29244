@@ -56,7 +56,7 @@ furnitures_9 = furnitures.children.create(name: "観葉植物")
 furnitures_9 = furnitures.children.create(name: "その他")
 
 # 食べ物
-foods = Itemcategory.create(name: "食べ物")
+foods = Itemcategory.create(name: "食品")
 foods_1 = foods.children.create(name: "野菜")
 foods_2 = foods.children.create(name: "果物")
 foods_3 = foods.children.create(name: "飲み物")

@@ -21,11 +21,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
   resources :shops, only: [:show, :new, :create] do
-    resources :items, only: [:show, :new, :create] do
-      collection do
-        get 'itemcategory_children', defaults: { fomat: 'json' }
-      end
-    end
+    resources :items, only: [:show, :new, :create, :show]
   end
   root to: "home#index"
 
