@@ -77,7 +77,7 @@
   transition: 0.3s ease-out;
 }
 .shops-show-item-edit:hover{
-  background: #FFAF42;
+  background: #dbb34d;
 }
 .shops-show-item-edit:hover::after{
   border-top: solid 2px #DEB887;
