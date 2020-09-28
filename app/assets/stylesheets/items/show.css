@@ -1,0 +1,96 @@
+.item-show {
+  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 80px;
+}
+
+.item-show-shop-name {
+  width: 650px;
+  height: 50px;
+  padding: 5px 10px;
+  font-size: 30px;
+}
+
+.item-show-shop-link {
+  text-decoration: none;
+  color: black;
+}
+.item-show-item {
+  width: 650px;
+}
+
+.item-show-item-image {
+  width: 70vh;
+  height: 50vh;
+  padding: 5px;
+}
+
+.item-show-item-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+
+.item-show-item-name {
+  margin-right: 10px;
+}
+
+.item-show-item-text{
+  color: #444444;
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+
+.item-show-size {
+  font-size: 20px;
+  margin: 5px 0;
+  border-bottom: solid 1px #777777;
+}
+
+.item-show-item-size {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.item-show-shipping {
+  font-size: 20px;
+  margin: 5px 0;
+  border-bottom: solid 1px #777777;
+}
+
+.item-show-item-shipping {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.item-show-stock {
+  font-size: 20px;
+  margin: 5px 0;
+  border-bottom: solid 1px #777777;
+}
+
+.item-show-item-stock {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.item-show-imformation {
+  font-size: 20px;
+  margin: 5px 0;
+  border-bottom: solid 1px #777777;
+}
+
+.item-show-item-imformation {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.item-show-item-purchase {
+  padding: 5px 80px;
+  border: solid 2px #FFD700;
+  color: #FFD700;
+}

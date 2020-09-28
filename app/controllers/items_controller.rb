@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
-    @itemcategory_parent = Itemcategory.where(ancestry: nil)
-    @accesories = Category.where(category_id: 1)
   end
   
   def create
@@ -13,6 +11,10 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private

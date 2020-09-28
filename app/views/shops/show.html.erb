@@ -1,37 +1,52 @@
-<div class="shop_main">
-  <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
-    <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
-    <%= link_to "MyShopトップへ戻る", root_path %>
-  <% else %>
-    <%= link_to "MyShopトップへ戻る", root_path %>
-  <% end %>
-  <div class="shop_name">
-    <h2><%= @shop.name %></h2>
+<%= render 'shared/header' %>
+
+<div class="shops-show-main">
+  <div class="shops-show-left">
   </div>
-  <div class="shop_text">
-    <%= @shop.text %>
-  </div>
-  <div class="shop_image">
-    <%= image_tag(@shop.image) %>
-  </div>
-  <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
-  <div class="item_btn">
-    <%= link_to "出品", '/shops/:shop_id/items/new' %>
-  </div>
-</div>
-<% end %>
-<div class="items_show">
-  <% @items.each do |item| %>
-    <div class="item_image">
-      <%= image_tag(item.image) %>
+  <div class="shops-show-right">
+    <div class="shops-show-shop">
+      <div class="shops-show-shop-name">
+        <%= @shop.name %>
+      </div>     
+      <div class="shops-show-shop-image">
+        <%= image_tag @shop.image, class:"shops-show-image" %>
+      </div>
+      <div class="shops-show-shop-text">
+        <%= @shop.text %>
+      </div>
+      <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
+        <div class="shops-show-item-btn">
+          <%= link_to "出品", '/shops/:shop_id/items/new' %>
+        </div>
+      <% end %>
     </div>
-    <div class="item_image">
-      <%= item.name %>
+    
+    <div class="items">
+      <div class="shops-show-items-show-title">
+        商品一覧
+      </div>
+      <ul class="shops-show-items-show">
+        <% @items.each do |item| %>
+        <li class="shops-show-items-list">
+          <%= link_to shop_item_path(@shop.id, item.id),class:"shops-show-item-link" do%>
+            <div class="shops-show-items_image">                
+              <%= image_tag item.image, class: "shops-show-item-image" %>
+            </div>
+            <div class="shops-show-items-detail">
+            <div class="shops-show-items-name">
+              <%= item.name %>
+            </div>
+            <div class="shops-show-items_price">
+              ￥<%= item.price %>
+            </div>
+            </div>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+      </div>
     </div>
-    <div class="item_image">
-      <%= item.price %>
-    </div>
-  <% end %>
+  </div>
 </div>
     
 

@@ -3,15 +3,15 @@
 <div class="main-left">
 </div>
 <div class="main-right">
-  <ul class="shops">
+  <ul class="main-shops">
   <% @shops.each do |shop| %>
-    <li class="shops-list">
-      <%= link_to shop_path(shop.id), class:"shops-link" do %>
-        <div class="shop-name">
+    <li class="main-shops-list">
+      <%= link_to shop_path(shop.id), class:"main-shops-link" do %>
+        <div class="main-shop-name">
           <%= shop.name %>
         </div>
-        <%= image_tag shop.image, class: "shop-image" %>
-        <div class="shop-text">
+        <%= image_tag shop.image, class: "main-shop-image" %>
+        <div class="main-shop-text">
           <%= shop.text %>
         </div>
         

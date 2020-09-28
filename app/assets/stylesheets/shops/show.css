@@ -1,0 +1,91 @@
+.shops-show-main {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.shops-show-left {
+  width: 300px;
+  background-color: #F5F5F5;
+}
+
+.shops-show-right {
+  width: 1000px;
+  margin: 0 0 0 10px;
+  padding-left: 100px;
+}
+
+.shops-show-shop {
+  height: 600px;
+}
+
+
+.shops-show-shop-name {
+  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  font-size: 35px;
+}
+
+.shops-show-shop-image{
+  height: 420px;
+  margin-bottom: 5px;
+}
+
+.shops-show-image {
+  width: 68vh;
+  height: 46vh;
+}
+
+.shops-show-shop-text {
+  margin-right: 200px;
+  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  font-size: 18px;
+  color: #444444;
+}
+
+.shops-show-items-show-title {
+  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #777777;
+}
+
+.shops-show-items-show {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-inline-start: 4px;
+}
+
+.shops-show-items-list {
+  width: 290px;
+  padding-right: 3px;
+}
+
+.shops-show-item-image {
+  width: 30vh;
+  height: 23vh;
+}
+
+.shops-show-item-link {
+  text-decoration: none;
+  color: #444444;
+  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+}
+
+.shops-show-item-link:hover {
+  opacity: 0.75;
+  color: #444444;
+  text-decoration: underline;
+}
+
+.shops-show-items-detail {
+  display: flex;
+}
+
+.shops-show-items-name{
+  margin-right: 10px;
+}
+
+
+
