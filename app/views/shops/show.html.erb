@@ -15,7 +15,7 @@
               <b><%= link_to "出品", '/shops/:shop_id/items/new', class:"shops-show-new" %></b>
             </p>
             <p class="shops-show-shop-edit">
-              <b><%= link_to "店舗の編集・削除", edit_shop_item_path(@shop.id), class:"shops-show-edit"%></b>
+              <b><%= link_to "店舗の編集・削除", edit_shop_path(@shop.id), class:"shops-show-edit"%></b>
             </p>
           <% end %>
         </div>

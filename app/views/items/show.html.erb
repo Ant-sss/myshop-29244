@@ -1,8 +1,17 @@
 <%= render 'shared/header' %>
 
 <div class="item-show">
-  <div class="item-show-shop-name">
-      <%= link_to  @item.shop.name, shop_path(@item.shop.id), class:"item-show-shop-link"%>
+  <div class="item-show-top">
+    <div class="item-show-shop-name">
+        <%= link_to  @item.shop.name, shop_path(@item.shop.id), class:"item-show-shop-link"%>
+    </div>
+    <div class="shops-show-shopkeeper-link">
+      <% if shopkeeper_signed_in? && current_shopkeeper.id == @item.shopkeeper_id %>
+        <p class="shops-show-item-btn">
+          <b><%= link_to "商品の編集・削除", edit_shop_item_path(@item.id), class:"shops-show-item-edit" %></b>
+        </p>
+      <% end %>
+    </div>
   </div>
   <div class="item-show-item">
     <div class="item-show-image">
