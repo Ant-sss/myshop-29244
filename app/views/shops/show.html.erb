@@ -5,9 +5,21 @@
   </div>
   <div class="shops-show-right">
     <div class="shops-show-shop">
-      <div class="shops-show-shop-name">
-        <%= @shop.name %>
-      </div>     
+      <div class="shops-show-shop-top">
+        <div class="shops-show-shop-name">
+          <%= @shop.name %>
+        </div>
+        <div class="shops-show-shopkeeper-link">
+          <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
+            <p class="shops-show-item-btn">
+              <b><%= link_to "出品", '/shops/:shop_id/items/new', class:"shops-show-new" %></b>
+            </p>
+            <p class="shops-show-shop-edit">
+              <b><%= link_to "店舗の編集・削除", edit_shop_item_path(@shop.id), class:"shops-show-edit"%></b>
+            </p>
+          <% end %>
+        </div>
+      </div>
       <div class="shops-show-shop-image">
         <%= image_tag @shop.image, class:"shops-show-image" %>
       </div>
@@ -15,9 +27,7 @@
         <%= @shop.text %>
       </div>
       <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
-        <div class="shops-show-item-btn">
-          <%= link_to "出品", '/shops/:shop_id/items/new' %>
-        </div>
+
       <% end %>
     </div>
     
