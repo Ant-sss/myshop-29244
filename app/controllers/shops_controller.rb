@@ -1,7 +1,9 @@
 class ShopsController < ApplicationController
   def show
+    
     @shop = Shop.find(params[:id])
-    @items = Item.all
+    @items = @shop.items
+
   end
 
   def new

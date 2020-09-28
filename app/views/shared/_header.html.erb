@@ -11,7 +11,7 @@
       <%= link_to '店舗の設定を行う', '/shops/new' %>
       <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
     <% elsif shopkeeper_signed_in? && current_shopkeeper.shop.present? %>
-      <%= link_to '店舗へ', shop_path(current_shopkeeper) %>
+      <%= link_to '店舗へ', shop_path(current_shopkeeper), class:"header-user" %>
       <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
     <% else %>
       
