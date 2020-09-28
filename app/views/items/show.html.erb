@@ -1,17 +1,54 @@
 <%= render 'shared/header' %>
 
-<div class="shop_name">
-    <h2> </h2>
+<div class="item-show">
+  <div class="item-show-shop-name">
+      <%= link_to  @item.shop.name, shop_path(@item.shop.id), class:"item-show-shop-link"%>
   </div>
-  <div class="shop_text">
-    <%= @item.name %>
+  <div class="item-show-item">
+    <div class="item-show-image">
+      <%= image_tag @item.image,class:"item-show-item-image" %>
+    </div>
+    <div class="item-show-item-detail">
+      <div class="item-show-item-name">
+        <%= @item.name %>
+      </div>
+      <div class="item-show-item-price">
+        ￥<%= @item.price %>
+      </div>
+    </div>
+    <div class="item-show-item-text">
+      <%= @item.text %>
+    </div>
+    <div class="item-show-size">
+      <b>サイズ・個数</b>
+    </div>
+      <div class="item-show-item-size">
+        Mサイズ/Sサイズそれぞれ3枚入り
+      </div>
+    
+    <div class="item-show-shipping">
+      <b>発送日数</b>
+      </div>
+      <div class="item-show-item-shipping">
+        1~2日
+      </div>
+    
+    <div class="item-show-stock">
+      在庫
+      </div>
+      <div class="item-show-item-stock">
+        各サイズ３個ずつ
+      </div>
+    
+    <div class="item-show-imformation">
+      注意点など
+      </div>
+      <div class="item-show-item-imformation">
+        発送まで３営業日かかることがございます
+      </div>
+    
   </div>
-  <div class="shop_image">
-    <%= image_tag(@item.image) %>
+  <div class="item-show-item-purchase">
+    <b>購入する</b>
   </div>
-  <div class="shop_text">
-    <%= @item.text %>
-  </div>
-  <div class="item_purchase">
-    購入する
-  </div>
+</div>
