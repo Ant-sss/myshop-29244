@@ -5,10 +5,11 @@
   </div>
   <div class="shops-show-right">
     <div class="shops-show-shop">
+      
+      <div class="shops-show-shop-name">
+        <%= @shop.name %>
+      </div>
       <div class="shops-show-shop-top">
-        <div class="shops-show-shop-name">
-          <%= @shop.name %>
-        </div>
         <div class="shops-show-shopkeeper-link">
           <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
             <p class="shops-show-item-btn">

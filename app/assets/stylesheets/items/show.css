@@ -9,9 +9,7 @@
 }
 
 .item-show-top {
-  display: flex;
   width: 650px;
-  justify-content: space-between;
 }
 
 .item-show-shop-name {

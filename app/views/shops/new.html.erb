@@ -7,18 +7,17 @@
       <div class="shop-new-shop-name">
         <b>店名</b>
       </div>
-        <%= f.text_field :name, class:"shop-new-shop-name-input", placeholder:"例）新鮮で美味しさ満点！！野菜農園（必須 40文字まで）", maxlength:"40" %>
+      <%= f.text_field :name, class:"shop-new-shop-name-input", placeholder:"例）新鮮で美味しさ満点！！野菜農園（必須 40文字まで）", maxlength:"40" %>
       <div class="shop-new-shop-images">
         <b>商品の画像（お店のトップ画像となります）</b>
         <div class="shop-new-shop-images">
-          <%= f.label :image, for:"shop-new-shop-image", class:"shop-new-shop-image-label" do %>
-            選択してください
+          <%= f.label :image, for:"item-new-image", class:"shop-new-shop-image-label" do %>
+            画像を選択してください
             <%= f.file_field :image, class:"shop-new-shop-image", id:"item-new-image", style: "display: none;" %>
           <% end %>
         </div>
       </div>
       <div class="item-new-item-images", id="items-new-image">
-      </div>
       </div>
       <div class="shop-new-shop-category">
         <b>店の種類（お店の検索に使用します）</b>
@@ -33,7 +32,7 @@
       </div>
     <% end %>
   </div>
-  <div>
+  <div class="shop-new-imformation">
     <b><a href="#">利用規約</a>
   </div>
 </div>
