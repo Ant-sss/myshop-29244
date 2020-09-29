@@ -1,1 +1,63 @@
 <%= render 'shared/header' %>
+
+<div class="item-new">
+  <div class="item-new-top">
+    <div class="item-new-shop-name">
+      <%= link_to  current_shopkeeper.shop.name, shop_path(current_shopkeeper.shop.id), class:"item-show-shop-link"%>
+    </div>
+    <div class="item-new-item-explain">
+    </div>
+  </div>
+  <div class="item-new-item">
+    <%= form_with model: [@shop, @item], class:"items", local: true do |f| %>
+    <%= render 'shared/error_messages', model: @item %>
+      <div class="item-new-item-image">
+
+        <div class="item-new-item-images-select">
+        商品画像の選択：<%= f.label :image, for:"item-new-image", class:"far fa-images fa-la faa-shake animated-hover" do %>
+        <%= f.file_field :image, class:"item-new-image", id:"item-new-image", style: "display: none;" %>
+        <% end %>
+        </div>
+        <div class="item-new-item-images", id="items-new-image">
+        </div>
+      </div>
+      <div class="item-new-item-name">
+        <b>商品名</b>
+      </div>
+        <%= f.text_field :name, class:"item-new-name-input",  placeholder:"商品名（必須 10文字まで）", maxlength:"10" %>
+      <div class="item-new-item-price">
+        <b>販売価格</b>
+      </div>
+        ￥<%= f.text_field :price, class:"item-new-item-price-input", placeholder:"例）1000" %>
+      <div class="item-new-item-text">
+        <b>商品の詳細・説明</b>
+      </div>
+        <%= f.text_area :text, class:"item-new-item-text-input", placeholder:"例）無農薬野菜を産地から直送します。とれたてのキャベツはいかがですか？（必須 1000文字まで）", maxlength:"1000" %>
+      <div class="item-new-item-category">
+        <b>商品のカテゴリー</b>
+        </div>
+        <%= f.collection_select(:itemcategory_id, Itemcategory.find(current_shopkeeper.shop.itemcategory_id).children, :id, :name, {include_blank:"選択してください"}, {class:"item-new-item-category-select"}) %>  
+      <div class="item-new-item-size">
+        <b>サイズや個数</b>
+      </div>
+        <%= f.text_area :size, class:"item-new-item-size-input", placeholder:"例）大きめの春キャベツです。１個ずつ販売しています。(必須 1000文字まで）", maxlength:"1000" %>
+      <div class="item-new-item-shipping">
+        <b>発送までの日数</b>
+      </div>
+        <select class="item-new-item-shipping-select"><option>選択</option></select>
+        <%# <%= f.collection_select(:sgippingday_id, Shippingday.all, :id, :name, {}, {class:"item-new-item-shipping-select"}) %> %>
+      <div class="item-new-item-shipform">
+        <b>発送元</b>
+      </div>
+        <%= f.collection_select(:shipfrom_id, Shipfrom.all, :id, :name, {}, {class:"item-new-item-shipfrom-select"}) %>
+      <div class="item-new-item-imformation">
+        </b>注意点など<b>
+      </div>
+        <%= f.text_area :text, class:"item-new-imformtaion-input", placeholder:"例）他の野菜も同時に注文された方は、同じ段ボールにて発送いたします。（必須 1000文字まで）", maxlength:"1000" %>
+      <div class="item-new-complete">
+        <p><%= f.submit "編集を完了する",class:"item-new-item-listing" %></P>
+        <p><%= link_to "この商品を削除する", shop_item_path(@shop, @item), method: :delete, class:"item-new-item-listing" %></P>
+      </div>
+    <% end %>
+  </div>
+</div>

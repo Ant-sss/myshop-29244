@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
+  before_action :shop_set, only: [:show, :edit]
+
   def show
-    @shop = Shop.find(params[:id])
     @items = @shop.items
 
   end
@@ -19,11 +20,14 @@ class ShopsController < ApplicationController
   end
 
   def edit
-    @shop = Shop.find(params[:id])
   end 
 
   def update
-
+    if @shop.update(shop_params)
+      redirect_to shop_path(@shop)
+    else
+      render "edit"
+    end
   end
   
   private
@@ -32,4 +36,7 @@ class ShopsController < ApplicationController
     params.require(:shop).permit(:name, :text, :itemcategory_id, :image).merge(shopkeeper_id: current_shopkeeper.id)
   end
 
+  def shop_set
+    @shop = Shop.find(params[:id])
+  end
 end

@@ -13,10 +13,14 @@
     <%= form_with url: shop_items_path, class:"items", local: true do |f| %>
     <%= render 'shared/error_messages', model: @item %>
       <div class="item-new-item-image">
-        <div class="item-new-item-images", id="items-new-image">
-          画像のプレビューが表示されます
+
+        <div class="item-new-item-images-select">
+        商品画像の選択：<%= f.label :image, for:"item-new-image", class:"far fa-images fa-la faa-shake animated-hover" do %>
+        <%= f.file_field :image, class:"item-new-image", id:"item-new-image", style: "display: none;" %>
+        <% end %>
         </div>
-        クリックして、商品画像を選択してください：<%= f.file_field :image, class:"item-new-image", id:"item-new-image" %>
+        <div class="item-new-item-images", id="items-new-image">
+        </div>
       </div>
       <div class="item-new-item-name">
         <b>商品名</b>
