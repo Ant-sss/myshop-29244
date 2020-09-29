@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :shop_set, only: [:show, :edit]
+  before_action :shop_set, only: [:show, :edit, :update, :destroy]
 
   def show
     @items = @shop.items
@@ -25,6 +25,14 @@ class ShopsController < ApplicationController
   def update
     if @shop.update(shop_params)
       redirect_to shop_path(@shop)
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    if @shop.destroy
+      redirect_to root_path
     else
       render "edit"
     end
