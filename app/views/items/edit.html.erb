@@ -6,24 +6,22 @@
       <%= link_to  current_shopkeeper.shop.name, shop_path(current_shopkeeper.shop.id), class:"item-show-shop-link"%>
     </div>
     <div class="item-new-item-explain">
-      出品する商品情報を入力してください
     </div>
   </div>
   <div class="item-new-item">
-    <%= form_with url: shop_items_path, class:"items", local: true do |f| %>
+    <%= form_with model: [@shop, @item], class:"items", local: true do |f| %>
     <%= render 'shared/error_messages', model: @item %>
-
       <div class="item-new-item-name">
         <b>商品名</b>
       </div>
-      <%= f.text_field :name, class:"item-new-name-input",  placeholder:"商品名（必須 10文字まで）", maxlength:"10" %>
+        <%= f.text_field :name, class:"item-new-name-input",  placeholder:"商品名（必須 10文字まで）", maxlength:"10" %>
       <div class="item-new-item-image">
         商品の画像
         <div class="item-new-item-images-select">
-          <%= f.label :image, for:"item-new-image", class:"item-new-image-label" do %>
-            選択してください
-            <%= f.file_field :image, class:"item-new-image", id:"item-new-image", style: "display: none;" %>
-          <% end %>
+        <%= f.label :image, for:"item-new-image", class:"item-new-image-label" do %>
+          選択してください
+        <%= f.file_field :image, class:"item-new-image", id:"item-new-image", style: "display: none;" %>
+        <% end %>
         </div>
         <div class="item-new-item-images", id="items-new-image">
         </div>
@@ -57,8 +55,9 @@
         </b>注意点など<b>
       </div>
         <%= f.text_area :text, class:"item-new-imformtaion-input", placeholder:"例）他の野菜も同時に注文された方は、同じ段ボールにて発送いたします。（必須 1000文字まで）", maxlength:"1000" %>
-      </div class="item-new-complete">
-        <p><%= f.submit "出品する",class:"item-new-item-listing" %></P>
+      <div class="item-new-complete">
+        <p><%= f.submit "編集を完了する",class:"item-new-item-listing" %></P>
+        <p><%= link_to "この商品を削除する", shop_item_path(@shop, @item), method: :delete, class:"item-new-item-listing" %></P>
       </div>
     <% end %>
   </div>

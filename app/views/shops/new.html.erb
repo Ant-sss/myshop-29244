@@ -1,24 +1,39 @@
-<h2>出店</h2>
-  <div class="main">
-  <%= form_with model: @shop, local:true do |f| %>
-    <%= render 'shared/error_messages', model: @shop %>
-    <div class="shop_index">
-      店名
-      <%= f.text_area :name, class:"shop_name", placeholder:"店名（必須 40文字まで）", maxlength:"40" %>
-    </div>
-    </div class="shop_index">
-      店の種類
-      <%= f.collection_select(:itemcategory_id, Itemcategory.where(ancestry: nil), :id, :name, {include_blank:"選択してください"}, {class:"shop_category"}) %>
-    <div class="shop_index">
-      店舗の説明
-      <%= f.text_area :text, class:"shop_text", placeholder:"店舗の説明（必須 1,000文字まで）", maxlength:"1000" %>
-    </div>
-    <div class="shop_index">
-      店舗イメージ（クリックしてアップロード）
-      <%= f.file_field :image, class:"shop_image" %>
-    </div>
-    </div class="shop_complete">
-      <%= f.submit "出店する",class:"shop_open" %>
-    </div>
-  <% end %>
+<%= render 'shared/header' %>
+
+<div class="shop-new">
+  <div class="shop-new-shop">
+    <%= form_with model: @shop, local:true do |f| %>
+      <%= render 'shared/error_messages', model: @shop %>
+      <div class="shop-new-shop-name">
+        <b>店名</b>
+      </div>
+        <%= f.text_field :name, class:"shop-new-shop-name-input", placeholder:"例）新鮮で美味しさ満点！！野菜農園（必須 40文字まで）", maxlength:"40" %>
+      <div class="shop-new-shop-images">
+        <b>商品の画像（お店のトップ画像となります）</b>
+        <div class="shop-new-shop-images">
+          <%= f.label :image, for:"shop-new-shop-image", class:"shop-new-shop-image-label" do %>
+            選択してください
+            <%= f.file_field :image, class:"shop-new-shop-image", id:"item-new-image", style: "display: none;" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="item-new-item-images", id="items-new-image">
+      </div>
+      </div>
+      <div class="shop-new-shop-category">
+        <b>店の種類（お店の検索に使用します）</b>
+      </div>
+      <%= f.collection_select(:itemcategory_id, Itemcategory.where(ancestry: nil), :id, :name, {include_blank:"選択してください"}, {class:"shop-category"}) %>
+      <div class="shop-new-shop-text">
+        店舗の説明
+      </div>
+      <%= f.text_area :text, class:"shop-new-shop-text-input", placeholder:"例）野菜の瑞々しさ、本来の自然な甘さ、食べたことはありますか？野菜農園は、標高の高い土地で野菜を作るので野菜本来の旨味を贅沢に味わえます。ツイートではそんな新鮮野菜を使ったレシピなどもご紹介します。新鮮野菜を摂り健康な体を作りましょう。（必須 1,000文字まで）", maxlength:"1000" %>
+      <div class="shop-complete">
+        <%= f.submit "出店する",class:"shop-new-open" %>
+      </div>
+    <% end %>
   </div>
+  <div>
+    <b><a href="#">利用規約</a>
+  </div>
+</div>

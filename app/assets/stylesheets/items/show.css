@@ -8,8 +8,13 @@
   padding-bottom: 80px;
 }
 
-.item-show-shop-name {
+.item-show-top {
+  display: flex;
   width: 650px;
+  justify-content: space-between;
+}
+
+.item-show-shop-name {
   height: 50px;
   padding: 5px 10px;
   font-size: 30px;
@@ -91,6 +96,6 @@
 
 .item-show-item-purchase {
   padding: 5px 80px;
-  border: solid 2px #FFD700;
-  color: #FFD700;
+  border: solid 2px #dbb34d;
+  color: #dbb34d;
 }
