@@ -29,18 +29,39 @@
   width: 650px;
 }
 
-.item-new-item-images {
-  width: 70vh;
-  height: 50vh;
-  padding: 5px;
-  color: #dbb34d;
-}
-
-.item-new-item-images-select {
+.item-new-item-image{
+  margin-top: 20px;
   font-size: 20px;
-  margin: 5px 0 0 0;
+}
+.item-new-item-images-select{
+  padding-bottom: 20px;
+  width: 460px;
+}
+.item-new-image-label{
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  display:block;
+  font-size:14px;
+  padding: 10px;
+  position:relative;
+  height: 40px;
+  width: 230px;
 }
 
+.item-new-image-label::before{
+  content:"＋";
+  color:#333333;
+  font-size:20px;
+  line-height:1;
+  margin-top: -9px;
+  right:10px;
+  position:absolute;
+  top:50%;
+
+}
 .item-new-item-name {
   margin-top: 10px;
 }
@@ -51,95 +72,137 @@
 }
 
 .item-new-name-input {
-  font-size: 15px;
-  height: 30px;
-  width: 600px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
+  background: #fff;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 14px;
+  padding: 10px;
+  height: 40px;
+  width: 295px;
 }
 
 .item-new-item-price {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .item-new-item-price-input {
-  font-size: 15px;
-  height: 30px;
-  width: 295px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
+  background: #fff;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 14px;
+  padding: 10px;
+  height: 40px;
+  width: 280px;
 }
 
 .item-new-item-text {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .item-new-item-text-input {
-  font-size: 15px;
-  height: 90px;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 13px;
+  padding: 10px;
+  height: 120px;
   width: 600px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
 }
 
 .item-new-item-category {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .item-new-item-category-select {
-  font-size: 15px;
-  height: 30px;
-  width: 295px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
+  background:#FFFFFF;
+  border: 1px solid #999999;
+  border-radius: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px;
+  position:relative;
+  height: 40px;
+  width: 230px;
 }
 
 .item-new-item-size {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .item-new-item-size-input {
-  font-size: 15px;
-  height: 60px;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 13px;
+  padding: 10px;
+  height: 120px;
   width: 600px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
 }
 
 .item-new-item-shipping {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .item-new-item-shipping-select {
-  font-size: 15px;
-  height: 30px;
-  width: 295px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
+  background:#FFFFFF;
+  border: 1px solid #999999;
+  border-radius: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px;
+  position:relative;
+  height: 40px;
+  width: 230px;
 }
 
 .item-new-item-shipform {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .item-new-item-shipfrom-select {
-  font-size: 15px;
-  height: 30px;
-  width: 295px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
+  background:#FFFFFF;
+  border: 1px solid #999999;
+  border-radius: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px;
+  position:relative;
+  height: 40px;
+  width: 230px;
 }
 
 .item-new-item-imformation {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .item-new-imformtaion-input {
-  font-size: 15px;
-  height: 90px;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 13px;
+  padding: 10px;
+  height: 120px;
   width: 600px;
-  padding: 2px 5px;
-  margin-bottom: 30px;
 }
 
 .item-new-item-listing {

@@ -11,20 +11,21 @@
   <div class="item-new-item">
     <%= form_with model: [@shop, @item], class:"items", local: true do |f| %>
     <%= render 'shared/error_messages', model: @item %>
+      <div class="item-new-item-name">
+        <b>商品名</b>
+      </div>
+        <%= f.text_field :name, class:"item-new-name-input",  placeholder:"商品名（必須 10文字まで）", maxlength:"10" %>
       <div class="item-new-item-image">
-
+        商品の画像
         <div class="item-new-item-images-select">
-        商品画像の選択：<%= f.label :image, for:"item-new-image", class:"far fa-images fa-la faa-shake animated-hover" do %>
+        <%= f.label :image, for:"item-new-image", class:"item-new-image-label" do %>
+          選択してください
         <%= f.file_field :image, class:"item-new-image", id:"item-new-image", style: "display: none;" %>
         <% end %>
         </div>
         <div class="item-new-item-images", id="items-new-image">
         </div>
       </div>
-      <div class="item-new-item-name">
-        <b>商品名</b>
-      </div>
-        <%= f.text_field :name, class:"item-new-name-input",  placeholder:"商品名（必須 10文字まで）", maxlength:"10" %>
       <div class="item-new-item-price">
         <b>販売価格</b>
       </div>
