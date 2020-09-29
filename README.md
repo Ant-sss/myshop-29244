@@ -28,7 +28,7 @@ has_one :address
 # tweet テーブル
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
+| title            | string     | null: false                    |
 | text            | text       | null: false                    |
 | shopkeeper      | references | null: false, foreign_key: true |
 | shop            | references | null: false, foreign_key: true |
