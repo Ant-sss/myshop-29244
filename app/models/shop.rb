@@ -5,5 +5,5 @@ class Shop < ApplicationRecord
   has_one_attached :image
   belongs_to :itemcategory
 
-  validates :name, :text, :image, presence: true
+  validates :name, :text, :image, :itemcategory, presence: true
 end
