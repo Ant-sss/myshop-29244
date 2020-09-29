@@ -47,8 +47,7 @@
       <div class="item-new-item-shipping">
         <b>発送までの日数</b>
       </div>
-        <select class="item-new-item-shipping-select"><option>選択</option></select>
-        <%# <%= f.collection_select(:sgippingday_id, Shippingday.all, :id, :name, {}, {class:"item-new-item-shipping-select"}) %> %>
+        <%= f.collection_select(:shipday_id, Shipday.all, :id, :name, {}, {class:"item-new-item-shipping-select"}) %>
       <div class="item-new-item-shipform">
         <b>発送元</b>
       </div>
@@ -56,7 +55,7 @@
       <div class="item-new-item-imformation">
         </b>注意点など<b>
       </div>
-        <%= f.text_area :text, class:"item-new-imformtaion-input", placeholder:"例）他の野菜も同時に注文された方は、同じ段ボールにて発送いたします。（必須 1000文字まで）", maxlength:"1000" %>
+        <%= f.text_area :imformation, class:"item-new-imformtaion-input", placeholder:"例）他の野菜も同時に注文された方は、同じ段ボールにて発送いたします。（必須 1000文字まで）", maxlength:"1000" %>
       </div class="item-new-complete">
         <p><%= f.submit "出品する",class:"item-new-item-listing" %></P>
       </div>

@@ -32,14 +32,14 @@
       <b>サイズ・個数</b>
     </div>
       <div class="item-show-item-size">
-        Mサイズ/Sサイズそれぞれ3枚入り
+        <%= @item.size %>
       </div>
     
     <div class="item-show-shipping">
-      <b>発送日数</b>
+      <b>発送までの日数</b>
       </div>
       <div class="item-show-item-shipping">
-        1~2日
+        <%= @item.shipday.name %>
       </div>
     
     <div class="item-show-stock">
@@ -53,7 +53,7 @@
       注意点など
       </div>
       <div class="item-show-item-imformation">
-        発送まで３営業日かかることがございます
+        <%= @item.imformation %>
       </div>
     
   </div>
