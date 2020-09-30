@@ -1,0 +1,24 @@
+<%= render 'shared/header' %>
+
+<div class="tweet-show">
+
+  <div class="tweet-show-top">
+    <div class="tweet-show-image">
+      <%= image_tag @tweet.image.variant(resize: '400x300') if @tweet.image.present? %>
+    </div>
+    <div class="tweet-show-createdtime">
+      <%= l @tweet.created_at %>
+    </div>
+  </div>
+  <div class="tweet-show-title">
+    <h3><%= @tweet.title %></h3>
+    </div>
+  <div class="tweet-show-text">
+    <%= simple_format(@tweet.text) %>
+  </div>
+  <div class="tweet-delete">
+    <% if shopkeeper_signed_in? && current_shopkeeper.id == @tweet.shopkeeper_id %>
+      <%= link_to "削除", shop_tweet_path(@tweet), method: :delete, class:"tweets-delete-link" %>
+    <% end %>
+  </div>
+</div>

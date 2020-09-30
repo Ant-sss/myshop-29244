@@ -4,10 +4,12 @@
   <div class="tweet-new-tweet">
     <%= form_with url: shop_tweets_path, class:"tweet-new-input", local: true do |f| %>
       <div class="tweet-new-images">
-        <%= f.label :image, for:"tweet-new-image", class:"tweet-new-image-label" do %>
+        <%= f.label :image, for:"item-new-image", class:"tweet-new-image-label" do %>
           画像選択
-          <%= f.file_field :image, class:"tweet-new-image", id:"item-new-image" %>
+          <%= f.file_field :image, class:"tweet-new-image-select", id:"item-new-image", style:"display: none;" %>
         <% end %>
+      </div>
+      <div class="item-new-item-images", id="items-new-image">
       </div>
       <div class="tweet-new-title">
         タイトル
@@ -22,7 +24,7 @@
         ３.鍋に水とかぼちゃと①全てを入れて落とし蓋をして中火にかけます
         ４.ふつふつして来たら弱火にしてかぼちゃが柔らかくなるまで煮れば完成！" %>
       <div class="tweet-complete">
-        <p><%= f.submit "投稿", class:"tweet-new-listing" %></p>
+        <%= f.submit "投稿", class:"tweet-new-listing" %>
       </div>
     <% end %>
   </div>

@@ -3,32 +3,33 @@
 <div class="tweet-index">
   <div class="tweet-shop">
     <div class="tweet-shop-image">
-      <%= image_tag @shop.image %>
+      <%= image_tag @shop.image.variant(resize: '200x200'), class:"tweet-index-shop-image"%>
     </div>
     <div class="tweet-shop-title">
       <div class="tweet-shop-top">
         <div class="tweet-shop-name">
-          <%= @shop.name %>
+          <h3><%= @shop.name %></h3>
         </div>
         <div class="tweet-shop-tweet">
           <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
-            <%= link_to "投稿する", new_shop_tweet_path(@shop), class:"tweets-new-link"%>
+            <%= link_to "投稿する", new_shop_tweet_path(@shop), class:"tweets-new-link" %>
           <% else %>
             お気に入り
           <% end %>
         </div>
       </div>
-      <div class="tweet-shop-text">
-        <%= @shop.text %>
-      </div>
     </div>
+  </div>
+  <div class="tweet-center">
   </div>
   <div class="tweets">
     <div class="tweet-image">
       <ul class="shop-tweets">
         <% @tweets.each do |tweet| %>
-        <li>
-          <%= image_tag tweet.image %>
+        <li class=" tweet-list">
+          <%= link_to shop_tweet_path(@shop.id, tweet.id) do %>
+            <%= image_tag tweet.image.variant(resize: '300x400') %>
+          <% end %>
         </li>
         <% end %>
       </ul>
