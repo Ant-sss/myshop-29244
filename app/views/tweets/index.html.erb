@@ -26,8 +26,11 @@
   <div class="tweets">
     <div class="tweet-image">
       <ul class="shop-tweets">
+        <% @tweets.each do |tweet| %>
         <li>
+          <%= image_tag tweet.image %>
         </li>
+        <% end %>
       </ul>
     </div>
   </div>

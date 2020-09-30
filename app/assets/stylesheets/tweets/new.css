@@ -1,0 +1,39 @@
+.tweet-new-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tweet-new-title {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.tweet-new-title-input {
+  background: #fff;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 14px;
+  padding: 10px;
+  height: 40px;
+  width: 600px;
+}
+
+.tweet-new-text {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.tweet-new-text-input {
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 13px;
+  padding: 10px;
+  height: 300px;
+  width: 600px;
+}
