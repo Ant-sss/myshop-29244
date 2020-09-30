@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to shop_path(@item.shop.id)
     else
-      render :new
+      render "new"
     end
   end
 

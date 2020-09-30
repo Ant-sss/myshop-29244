@@ -1,0 +1,34 @@
+<%= render 'shared/header' %>
+
+<div class="tweet-new-top">
+  <div class="tweet-new-tweet">
+    <%= form_with url: shop_tweets_path, class:"tweet-new-input", local: true do |f| %>
+      <div class="tweet-new-images">
+        <%= f.label :image, for:"item-new-image", class:"tweet-new-image-label" do %>
+          画像選択
+          <%= f.file_field :image, class:"tweet-new-image-select", id:"item-new-image", style:"display: none;" %>
+        <% end %>
+      </div>
+      <div class="item-new-item-images", id="items-new-image">
+      </div>
+      <div class="tweet-new-title">
+        タイトル
+      </div>
+        <%= f.text_field :title, class:"tweet-new-title-input", placeholder:"例）かぼちゃの煮物 のレシピをご紹介！ （必須 30文字まで）" %>
+      <div class="tweet-new-text">
+        内容
+      </div>
+        <%= f.text_area :text, class:"tweet-new-text-input", placeholder:"例） 材料：かぼちゃ、水、①醤油、①砂糖、①みりん
+        １.かぼちゃのタネを取り除きます 
+        ２.かぼちゃにぴったりとラップしレンジで加熱したら、カットします 
+        ３.鍋に水とかぼちゃと①全てを入れて落とし蓋をして中火にかけます
+        ４.ふつふつして来たら弱火にしてかぼちゃが柔らかくなるまで煮れば完成！" %>
+      <div class="tweet-complete">
+        <%= f.submit "投稿", class:"tweet-new-listing" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="tweet-imfomation">
+    注意点
+  </div>
+</div>

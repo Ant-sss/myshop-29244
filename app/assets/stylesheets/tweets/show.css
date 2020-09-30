@@ -1,0 +1,62 @@
+.tweet-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.tweets-delete-link {
+  width: 150px;
+  padding:15px;
+  color:#ffffff;
+  font-size: 15px;
+  line-height: 120%;
+  text-align: center;
+  text-decoration: none;
+  background: #FFAF42;
+  display: block;
+  position:relative;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+  -webkit-box-shadow:0px 15px 30px -15px rgba(0,0,0,0.3);
+  -moz-box-shadow:0px 15px 30px -15px rgba(0,0,0,0.3);
+  box-shadow:0px 15px 30px -15px rgba(0,0,0,0.3);
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.tweets-delete-link:hover {
+  opacity:0.7;
+}
+
+.tweet-show-top {
+  width: 800px;
+  /* background-color: bisque; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.tweet-show-createdtime {
+  color: #999999;
+}
+
+.tweet-show-title {
+  width: 800px;
+  border-top: solid 1px #777777;
+  padding: 30px 0 0 0;
+}
+
+.tweet-show-text {
+  width: 800px;
+}
+
+.tweet-delete {
+  margin: 10px;
+}

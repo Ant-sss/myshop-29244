@@ -19,6 +19,9 @@
               <b><%= link_to "店舗の編集・削除", edit_shop_path(@shop.id), class:"shops-show-edit"%></b>
             </p>
           <% end %>
+          <p class="shops-show-item-btn">
+            <b><%= link_to "投稿", shop_tweets_path(@shop.id), class:"shops-show-new" %></b>
+          </p>
         </div>
       </div>
       <div class="shops-show-shop-image">

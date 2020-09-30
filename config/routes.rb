@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :shops, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :items, only: [:show, :new, :create, :edit, :update ,:destroy]
+    resources :tweets, only: [:index, :show, :new, :create, :destroy]
   end
   root to: "home#index"
 
