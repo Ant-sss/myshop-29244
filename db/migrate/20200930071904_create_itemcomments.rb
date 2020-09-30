@@ -3,8 +3,8 @@ class CreateItemcomments < ActiveRecord::Migration[6.0]
     create_table :itemcomments do |t|
       t.text :text,             null: false
       t.references :item,       null: false, foreign_key: true
-      t.references :shopkeeper, null: false, foreign_key: true
-      t.references :customer,   null: false, foreign_key: true
+      t.references :shopkeeper, foreign_key: true
+      t.references :customer,   oreign_key: true
       t.timestamps
     end
   end

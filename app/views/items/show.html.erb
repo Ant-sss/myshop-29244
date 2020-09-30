@@ -60,4 +60,28 @@
   <div class="item-show-item-purchase">
     <b>購入する</b>
   </div>
+
+  <div class="item-comments">
+    <div class="item-comment-new">
+      <% if shopkeeper_signed_in? || customer_signed_in? %>
+        <%= form_with url: shop_item_itemcomments_path, class:"item-comment" do |f| %>
+          <%= f.text_area :text, class:"item-comment-input" %>
+          <%= f.submit "投稿", class:"item-commnet-send"%>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="item-comments" id="comments">
+      <% if @itemcomments.present? %>
+        <% @itemcomments.reverse_each do |itemcomment| %>
+          <% if shopkeeper_signed_in? %>
+            <%= itemcomment.shopkeeper.name %>
+          <% else %>
+            <%= itemcomment.customer.nickname %>
+          <% end %>
+          <%= itemcomment.text %>
+          <%= itemcomment.created_at %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
