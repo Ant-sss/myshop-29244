@@ -1,0 +1,34 @@
+<%= render 'shared/header' %>
+
+<div class="tweet-index">
+  <div class="tweet-shop">
+    <div class="tweet-shop-image">
+      <%= image_tag @shop.image %>
+    </div>
+    <div class="tweet-shop-title">
+      <div class="tweet-shop-top">
+        <div class="tweet-shop-name">
+          <%= @shop.name %>
+        </div>
+        <div class="tweet-shop-tweet">
+          <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
+            <%= link_to "投稿する", new_shop_tweet_path(@shop), class:"tweets-new-link"%>
+          <% else %>
+            お気に入り
+          <% end %>
+        </div>
+      </div>
+      <div class="tweet-shop-text">
+        <%= @shop.text %>
+      </div>
+    </div>
+  </div>
+  <div class="tweets">
+    <div class="tweet-image">
+      <ul class="shop-tweets">
+        <li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
