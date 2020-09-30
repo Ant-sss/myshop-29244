@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_one :purchase
   has_one_attached :image
-  has_many :comments
+  has_many :itemcomments
   belongs_to :itemcategory
   belongs_to :shopkeeper
   belongs_to :shop

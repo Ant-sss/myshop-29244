@@ -18,10 +18,36 @@
   font-size: 30px;
 }
 
+.shops-show-edit-link {
+  width: 180px;
+  padding:15px;
+  color:#ffffff;
+  font-size: 15px;
+  line-height: 120%;
+  text-align: center;
+  text-decoration: none;
+  background: #FFAF42;
+  display: block;
+  position:relative;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+  border: none;
+}
+
+.shops-show-edit-link:hover {
+  opacity:0.7;
+}
+
 .item-show-shop-link {
   text-decoration: none;
   color: black;
 }
+
 .item-show-item {
   width: 650px;
 }

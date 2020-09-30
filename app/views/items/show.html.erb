@@ -8,7 +8,7 @@
     <div class="shops-show-shopkeeper-link">
       <% if shopkeeper_signed_in? && current_shopkeeper.id == @item.shopkeeper_id %>
         <p class="shops-show-item-edit">
-          <b><%= link_to "商品の編集・削除", edit_shop_item_path(@item.shop.id, @item.id), class:"shops-show-edit" %></b>
+          <b><%= link_to "商品の編集・削除", edit_shop_item_path(@item.shop.id, @item.id), class:"shops-show-edit-link" %></b>
         </p>
       <% end %>
     </div>
