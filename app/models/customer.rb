@@ -15,7 +15,7 @@ class Customer < ApplicationRecord
         end
 
   has_many :items
-  has_many :comments
+  has_many :itemcomments
   has_one :residence
   has_one :card
 

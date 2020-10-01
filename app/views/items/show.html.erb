@@ -74,10 +74,13 @@
     <div class="item-comments" id="comments">
       <% if @itemcomments.present? %>
       <% @itemcomments.reverse_each do |itemcomment| %> 
+        <% if itemcomment.shopkeeper_id.present? %>
           <%= itemcomment.item.shop.name %>
+        <% elsif itemcomment.customer_id.present? %>
+          <%= itemcomment.customer.nickname %>
+        <% end %>
           <%= l itemcomment.created_at %>             
           <%= simple_format(itemcomment.text) %>
-
         <% end %>
       <% end %>
     </div>
