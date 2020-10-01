@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :shop_set
   before_action :item_set, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -6,24 +7,25 @@ class ItemsController < ApplicationController
   end
   
   def create
-    @item = Item.new(item_params)
-    # binding.pry
+    @item = @shop.items.new(item_params)
     if @item.save
-      redirect_to shop_path(@item.shop.id)
+      redirect_to shop_path(@shop)
     else
-      render "new"
+      render :new
     end
   end
 
+
   def show
-    @item = Item.find(params[:id])
+    @itemcomment = Itemcomment.new
+    @itemcomments = @item.itemcomments.last(10)
   end
 
   def edit
-    @shop = Shop.find(params[:shop_id])
   end
 
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to shop_path(@item.shop.id)
     else 
@@ -42,11 +44,15 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:name, :text, :itemcategory_id, :shipfrom_id, :shipday_id, :size, :imformation, :price, :image).merge(shopkeeper_id: current_shopkeeper.id, shop_id: current_shopkeeper.shop.id)
+    params.require(:item).permit(:name, :text, :itemcategory_id, :shipfrom_id, :shipday_id, :size, :imformation, :price, :image).merge(shopkeeper_id: current_shopkeeper.id, shop_id: current_shopkeeper.shop.id)
   end
 
   def item_set
     @item = Item.find(params[:id])
+  end
+
+  def shop_set
+    @shop = Shop.find(params[:shop_id])
   end
 
 end

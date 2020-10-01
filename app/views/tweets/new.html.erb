@@ -2,7 +2,7 @@
 
 <div class="tweet-new-top">
   <div class="tweet-new-tweet">
-    <%= form_with url: shop_tweets_path, class:"tweet-new-input", local: true do |f| %>
+    <%= form_with model: [@shop, @tweet], class:"tweet-new-input", local: true do |f| %>
       <div class="tweet-new-images">
         <%= f.label :image, for:"item-new-image", class:"tweet-new-image-label" do %>
           画像選択

@@ -19,13 +19,12 @@ Rails.application.routes.draw do
     post 'addresses', to: 'shopkeepers/registrations#create_address'
   end
 
-  resources :home, only: [:index]
-  resources :shops, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :items, only: [:show, :new, :create, :edit, :update ,:destroy] do
-      resources :itemcomments, only: [:create]
+      resources :itemcomments, only: [:index, :create]
     end
     resources :tweets, only: [:index, :show, :new, :create, :destroy]
   end
-  root to: "home#index"
+  root to: "shops#index"
 
 end

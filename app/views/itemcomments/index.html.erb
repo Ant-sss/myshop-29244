@@ -1,0 +1,20 @@
+<%= render 'shared/header' %>  
+  
+  <div class="item-comments">
+    <div class="item-comment-new">
+      <% if shopkeeper_signed_in? || customer_signed_in? %>
+        <%= form_with(model: [@shop, @item, @itemcomment], class:"item-comment", local:true) do |f| %>
+          <%= f.text_area :text, class:"item-comment-input" %>
+          <%= f.submit "投稿", class:"item-commnet-send"%>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="item-comments" id="comments">
+      <% if @itemcomments.present? %>
+        <% @itemcomments.reverse_each do |itemcomment| %>
+          <%= simple_format(itemcomment.text) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="item-new-item">
-    <%= form_with url: shop_items_path, class:"items", local: true do |f| %>
+    <%= form_with model: [@shop, @item], class:"items", local: true do |f| %>
     <%= render 'shared/error_messages', model: @item %>
 
       <div class="item-new-item-name">

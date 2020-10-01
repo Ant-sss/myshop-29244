@@ -12,7 +12,7 @@
         </div>
         <div class="tweet-shop-tweet">
           <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
-            <%= link_to "投稿する", new_shop_tweet_path(@shop), class:"tweets-new-link" %>
+            <%= link_to "投稿する", new_shop_tweet_path(@shop.id), class:"tweets-new-link" %>
           <% else %>
             お気に入り
           <% end %>

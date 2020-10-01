@@ -1,21 +1,2 @@
-<%= render 'shared/header' %>
-<div class="top">
-<div class="main-left">
-</div>
-<div class="main-right">
-  <ul class="main-shops">
-  <% @shops.each do |shop| %>
-    <li class="main-shops-list">
-      <%= link_to shop_path(shop.id), class:"main-shops-link" do %>
-        <div class="main-shop-name">
-          <%= shop.name %>
-        </div>
-        <%= image_tag shop.image, class: "main-shop-image" %>
-        
-      <% end %>
-    </li>
-  <% end %>
-  </ul>
-</div>
-</div>
+
 

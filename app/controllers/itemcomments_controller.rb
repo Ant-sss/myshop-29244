@@ -1,17 +1,32 @@
 class ItemcommentsController < ApplicationController
+  before_action :item_set
 
-  def new
-    @itemcomments = Itemcomment.all
+  def index
+    @shop = Shop.find(params[:shop_id])
     @itemcomment = Itemcomment.new
+    @itemcomments = @item.itemcomments.last(10).includes(:shopkeeper)
   end
 
   def create
-    @itemcomment = Itemcomment.new(itemcomment_params)
+    @shop = Shop.find(params[:shop_id])
+    @itemcomment = @item.itemcomments.new(itemcomment_params)
+    # binding.pry
+    if @itemcomment.save
+      redirect_to shop_item_path(@shop, @item)
+    else
+      @itemcomments = @item.itemcomments.inclides(:shopkeeper)
+      render root_path
+    end
   end
 
   private
 
   def itemcomment_params
-    params.permit(:itemcomment).require(:text).merge(shopkeeper_id: current_shopkeeper.id, customer_id: current_customer.id, item_id: params[:item_id])
+    params.require(:itemcomment).permit(:text).merge(shopkeeper_id: current_shopkeeper.id)
   end
+
+  def item_set
+    @item = Item.find(params[:item_id])
+  end
+
 end

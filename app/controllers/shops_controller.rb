@@ -1,9 +1,12 @@
 class ShopsController < ApplicationController
   before_action :shop_set, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @shops = Shop.all
+  end
+
   def show
     @items = @shop.items
-
   end
 
   def new

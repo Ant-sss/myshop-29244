@@ -13,7 +13,7 @@
         <div class="shops-show-shopkeeper-link">
           <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
             <p class="shops-show-item-btn">
-              <b><%= link_to "出品", '/shops/:shop_id/items/new', class:"shops-show-new" %></b>
+              <b><%= link_to "出品", new_shop_item_path(@shop.id), class:"shops-show-new" %></b>
             </p>
             <p class="shops-show-shop-edit">
               <b><%= link_to "店舗の編集・削除", edit_shop_path(@shop.id), class:"shops-show-edit"%></b>
