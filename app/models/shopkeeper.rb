@@ -18,4 +18,5 @@ class Shopkeeper < ApplicationRecord
         has_many :itemcommnets, dependent: :destroy
         has_many :tweets, dependent: :destroy
         has_many :items, dependent: :destroy
+        has_many :tweetcomments, dependent: :destroy
 end

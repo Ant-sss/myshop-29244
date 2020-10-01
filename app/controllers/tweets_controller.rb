@@ -20,6 +20,8 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @tweetcomment = Tweetcomment.new
+    @tweetcomments = @tweet.tweetcomments.last(10)
   end
 
   def destroy

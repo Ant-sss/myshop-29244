@@ -21,4 +21,28 @@
       <%= link_to "削除", shop_tweet_path(@tweet), method: :delete, class:"tweets-delete-link" %>
     <% end %>
   </div>
+
+  <div class="tweet-comments">
+    <div class="tweet-comment-new">
+      <% if shopkeeper_signed_in? || customer_signed_in? %>
+        <%= form_with(model: [@shop, @tweet, @tweetcomment], class:"tweet-comment", local:true) do |f| %>
+          <%= f.text_area :text, class:"tweet-comment-input", placeholder:"この商品の質問等は、こちらに記載し送信してください" %>
+          <b><%= f.submit "送信", class:"tweet-commnet-send"%></b>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tweet-comments" id="comments">
+      <% if @tweetcomments.present? %>
+      <% @tweetcomments.reverse_each do |tweetcomment| %> 
+        <% if tweetcomment.shopkeeper_id.present? %>
+          <%= tweetcomment.tweet.shop.name %>
+        <% elsif tweetcomment.customer_id.present? %>
+          <%= tweetcomment.customer.nickname %>
+        <% end %>
+          <%= l tweetcomment.created_at %>             
+          <%= simple_format(tweetcomment.text) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

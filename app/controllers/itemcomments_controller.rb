@@ -1,19 +1,13 @@
 class ItemcommentsController < ApplicationController
   before_action :item_set
 
-  def index
-    @shop = Shop.find(params[:shop_id])
-    @itemcomment = Itemcomment.new
-    @itemcomments = @item.itemcomments.last(10).includes(:shopkeeper)
-  end
-
   def create
     @shop = Shop.find(params[:shop_id])
     @itemcomment = @item.itemcomments.new(itemcomment_params)
       if @itemcomment.save
         redirect_to shop_item_path(@shop, @item)
       else
-        @itemcomments = @item.itemcomments.inclides(:shopkeeper)
+        @itemcomments = @item.itemcomments.last(10).inclides(:shopkeeper, :customer)
         render root_path
       end
   end

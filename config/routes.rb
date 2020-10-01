@@ -21,10 +21,13 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :items, only: [:show, :new, :create, :edit, :update ,:destroy] do
-      resources :itemcomments, only: [:index, :create]
+      resources :itemcomments, only: :create
     end
-    resources :tweets, only: [:index, :show, :new, :create, :destroy]
+    resources :tweets, only: [:index, :show, :new, :create, :destroy] do
+      resources :tweetcomments, only: :create
+    end
   end
+
   root to: "shops#index"
 
 end
