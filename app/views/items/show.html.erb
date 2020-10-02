@@ -66,21 +66,30 @@
     <div class="item-comment-new">
       <% if shopkeeper_signed_in? || customer_signed_in? %>
         <%= form_with(model: [@shop, @item, @itemcomment], class:"item-comment", local:true) do |f| %>
+          <%= render 'shared/error_messages', model: @itemcomment %>
           <%= f.text_area :text, class:"item-comment-input", placeholder:"この商品の質問等は、こちらに記載し送信してください" %>
           <b><%= f.submit "送信", class:"item-commnet-send"%></b>
         <% end %>
       <% end %>
     </div>
-    <div class="item-comments" id="comments">
+    <div class="item-comments-all" id="comments">
       <% if @itemcomments.present? %>
-      <% @itemcomments.reverse_each do |itemcomment| %> 
-        <% if itemcomment.shopkeeper_id.present? %>
-          <%= itemcomment.item.shop.name %>
-        <% elsif itemcomment.customer_id.present? %>
-          <%= itemcomment.customer.nickname %>
-        <% end %>
-          <%= l itemcomment.created_at %>             
-          <%= simple_format(itemcomment.text) %>
+        <% @itemcomments.reverse_each do |itemcomment| %> 
+          <div class="item-comment-top">
+            <div class="item-comment-name">
+              <% if itemcomment.shopkeeper_id.present? %>
+                <%= itemcomment.item.shop.name %>
+              <% elsif itemcomment.customer_id.present? %>
+                <%= itemcomment.customer.nickname %>
+              <% end %>
+            </div>
+            <div class="item-commnet-time">
+              <%= itemcomment.created_at %>
+            </div>
+          </div>
+          <div class="item-comment-text">
+            <%= simple_format(itemcomment.text) %>
+          </div>
         <% end %>
       <% end %>
     </div>

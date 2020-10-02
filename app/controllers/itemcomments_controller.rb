@@ -7,8 +7,8 @@ class ItemcommentsController < ApplicationController
       if @itemcomment.save
         redirect_to shop_item_path(@shop, @item)
       else
-        @itemcomments = @item.itemcomments.last(10).inclides(:shopkeeper, :customer)
-        render root_path
+        @itemcomments = @item.itemcomments.last(10)
+        render 'items/show'
       end
   end
 
