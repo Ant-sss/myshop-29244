@@ -1,37 +1,43 @@
-<h2>住所登録<h2>
+<%= render 'shared/header' %>  
 
+<div class="user-signup">
+  <div class="user-signup-top">
+    住所登録
+  <div>
+  <div class="user-signup-input">
+    <%= form_for @address do |f| %>
+      <%= render "devise/shared/error_messages", resource: @address %>
 
-<%= form_for @address do |f| %>
-  <%= render "devise/shared/error_messages", resource: @address %>
+      <div class="field">
+        <%= f.label :郵便番号 %><br />
+        <%= f.text_field :postal_code, class:"field-input"  %>
+      </div>
 
-  <div class="field">
-    <%= f.label :郵便番号 %><br />
-    <%= f.text_field :postal_code %>
+      <div class="field">
+        <%= f.label :都道府県 %><br />
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"field-input-select"}) %>
+      </div>
+
+      <div class="field">
+        <%= f.label :市町村区 %><br />
+        <%= f.text_field :city, class:"field-input"  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :番地 %><br />
+        <%= f.text_field :house_num, class:"field-input"  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :建物名 %><br />
+        <%= f.text_field :building_name, class:"field-input"  %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録完了", class:"action-link" %>
+      </div>
+    <% end %>
   </div>
-
-    <div class="field">
-    <%= f.label :都道府県 %><br />
-    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture_select"}) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :市町村区 %><br />
-    <%= f.text_field :city %>
-  </div>
-
-    <div class="field">
-    <%= f.label :番地 %><br />
-    <%= f.text_field :house_num %>
-  </div>
-
-    <div class="field">
-    <%= f.label :建物名 %><br />
-    <%= f.text_field :building_name %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
 
 <%= render "devise/shared/links" %>

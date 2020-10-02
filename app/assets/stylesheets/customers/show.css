@@ -9,6 +9,7 @@
 .customer-top {
   width: 600px;
   display: flex;
+  justify-content: center;
 }
 
 .customer-edit {
