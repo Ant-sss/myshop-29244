@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cards/new'
   get 'customers/show'
   devise_for :customers, controllers: {
     registrations: 'customers/registrations',
@@ -29,9 +30,10 @@ Rails.application.routes.draw do
     end
   end
   resources :customers, only: [:show]
-  resources :resodences, only: [:show, :update]
-  resources :shopkeepers, only: [:show, :update]
+  resources :residences, only: [:show, :update]
+  resources :shopkeepers, only: [:show]
   resources :address, only: [:show, :update]
+  resources :cards, only: [:new, :create]
 
   root to: "shops#index"
 

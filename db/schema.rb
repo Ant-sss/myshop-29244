@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_094049) do
+ActiveRecord::Schema.define(version: 2020_10_02_033611) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2020_10_01_094049) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shopkeeper_id"], name: "index_addresses_on_shopkeeper_id"
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_token", null: false
+    t.string "customer_token", null: false
+    t.bigint "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_cards_on_customer_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -160,6 +169,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_094049) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cards", "customers"
   add_foreign_key "itemcomments", "customers"
   add_foreign_key "itemcomments", "items"
   add_foreign_key "itemcomments", "shopkeepers"

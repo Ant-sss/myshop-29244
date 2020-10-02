@@ -17,7 +17,7 @@ class Customer < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :itemcomments, dependent: :destroy
   has_many :tweetcomments, dependent: :destroy
-  has_one :residence
-  has_one :card
+  has_one :residence, dependent: :destroy
+  has_one :card, dependent: :destroy
 
 end
