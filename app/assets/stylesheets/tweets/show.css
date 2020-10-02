@@ -60,3 +60,67 @@
 .tweet-delete {
   margin: 10px;
 }
+
+.tweet-comments {
+  width: 800px;
+}
+
+.tweet-comment-new {
+  padding: 30px 0;
+  border-top: solid 1px #777777;
+}
+
+.tweet-comment-input {
+    border: 1px solid #999999;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 13px;
+    padding: 10px;
+    height: 40px;
+    width: 600px;
+
+}
+
+.tweet-comment-send {
+  color: #ffffff;
+  background-color: #FFAF42;
+  border: none;
+  padding: 5px, 10px;
+  font-size: 15px;
+  width: 60px;
+  height: 30px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.tweet-comment-send:hover {
+  opacity:0.7;
+}
+
+.tweet-comments-all {
+  margin: 10px 0;
+}
+
+.tweet-comment-top {
+  display: flex;
+  align-items: baseline;
+}
+
+.tweet-comment-name {
+  margin-right: 8px;
+}
+
+.tweet-comment-time {
+  font-size: smaller;
+  color: gray;
+}
+
+.tweet-comment-text p {
+  margin-top: 2px;
+}

@@ -14,8 +14,9 @@ class Customer < ApplicationRecord
           validates :birthday, :nickname
         end
 
-  has_many :items
-  has_many :comments
+  has_many :items, dependent: :destroy
+  has_many :itemcomments, dependent: :destroy
+  has_many :tweetcomments, dependent: :destroy
   has_one :residence
   has_one :card
 

@@ -18,10 +18,36 @@
   font-size: 30px;
 }
 
+.shops-show-edit-link {
+  width: 180px;
+  padding:15px;
+  color:#ffffff;
+  font-size: 15px;
+  line-height: 120%;
+  text-align: center;
+  text-decoration: none;
+  background: #FFAF42;
+  display: block;
+  position:relative;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+  border: none;
+}
+
+.shops-show-edit-link:hover {
+  opacity:0.7;
+}
+
 .item-show-shop-link {
   text-decoration: none;
   color: black;
 }
+
 .item-show-item {
   width: 650px;
 }
@@ -92,8 +118,96 @@
   margin-bottom: 20px;
 }
 
+
+.item-show-bottom {
+  width: 650px;
+}
+
+.item-show-purchase {
+  margin: 20px;
+}
 .item-show-item-purchase {
-  padding: 5px 80px;
-  border: solid 2px #dbb34d;
+  background-color: #FFFFFF;
+  border:1px solid #FFAF42;
+  border-radius: 2px;
   color: #dbb34d;
+  display: block;
+  font-size: 14px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  width: 230px;
+}
+
+.item-show-item-purchase:hover {
+  background-color: #FFAF42;
+  color: #FFFFFF;
+}
+
+
+.item-comments {
+  width: 800px;
+}
+
+.item-comment-new {
+  padding: 30px 0;
+  border-top: solid 1px #777777;
+}
+
+.item-comment-input {
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 13px;
+  padding: 10px;
+  height: 40px;
+  width: 600px;
+}
+.item-commnet-send {
+  color: #ffffff;
+  background-color: #FFAF42;
+  border: none;
+  padding: 5px, 10px;
+  font-size: 15px;
+  width: 60px;
+  height: 30px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.item-comment-send:hover {
+  opacity:0.7;
+}
+
+
+.item-comments-all {
+  margin: 10px 0;
+}
+
+.item-comment-top {
+  display: flex;
+  align-items: baseline;
+}
+
+.item-comment-name {
+  margin-right: 8px;
+}
+
+.item-comment-time {
+  font-size: smaller;
+  color: gray;
+}
+
+.item-comment-text p {
+  margin-top: 2px;
 }

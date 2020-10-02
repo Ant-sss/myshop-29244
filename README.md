@@ -49,6 +49,18 @@ belongs_to :tweet
 belongs_to :shopkeeper
 belongs_to :customer
 
+# itemcomment テーブル
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| text            | text       | null: false                    |
+| item            | references | null: false, foreign_key: true |
+| shopkeeper      | references | null: false, foreign_key: true |
+| customer        | references | null: false, foreign_key: true |
+
+belongs_to :item
+belongs_to :shopkeeper
+belongs_to :customer
+
 # item テーブル
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |

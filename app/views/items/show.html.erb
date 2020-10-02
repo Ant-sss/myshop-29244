@@ -3,19 +3,19 @@
 <div class="item-show">
   <div class="item-show-top">
     <div class="item-show-shop-name">
-        <%= link_to  @item.shop.name, shop_path(@item.shop.id), class:"item-show-shop-link"%>
+        <%= link_to  @shop.name, shop_path(@shop.id), class:"item-show-shop-link"%>
     </div>
     <div class="shops-show-shopkeeper-link">
-      <% if shopkeeper_signed_in? && current_shopkeeper.id == @item.shopkeeper_id %>
+      <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
         <p class="shops-show-item-edit">
-          <b><%= link_to "商品の編集・削除", edit_shop_item_path(@item.shop.id, @item.id), class:"shops-show-edit" %></b>
+          <b><%= link_to "商品の編集・削除", edit_shop_item_path(@shop, @item), class:"shops-show-edit-link" %></b>
         </p>
       <% end %>
     </div>
   </div>
   <div class="item-show-item">
     <div class="item-show-image">
-      <%= image_tag @item.image,class:"item-show-item-image" %>
+      <%= image_tag @item.image, class:"item-show-item-image" %>
     </div>
     <div class="item-show-item-detail">
       <div class="item-show-item-name">
@@ -26,13 +26,13 @@
       </div>
     </div>
     <div class="item-show-item-text">
-      <%= @item.text %>
+      <%= simple_format(@item.text) %>
     </div>
     <div class="item-show-size">
       <b>サイズ・個数</b>
     </div>
       <div class="item-show-item-size">
-        <%= @item.size %>
+        <%= simple_format(@item.size) %>
       </div>
     
     <div class="item-show-shipping">
@@ -53,11 +53,45 @@
       注意点など
       </div>
       <div class="item-show-item-imformation">
-        <%= @item.imformation %>
+        <%= simple_format(@item.imformation) %>
       </div>
     
   </div>
-  <div class="item-show-item-purchase">
-    <b>購入する</b>
+  <div class="item-show-bottom">
+  <div class="item-show-purchase">
+  <%= link_to "購入", "#", class:"item-show-item-purchase"%>
+  </div>
+
+  <div class="item-comments">
+    <div class="item-comment-new">
+      <% if shopkeeper_signed_in? || customer_signed_in? %>
+        <%= form_with(model: [@shop, @item, @itemcomment], class:"item-comment", local:true) do |f| %>
+          <%= render 'shared/error_messages', model: @itemcomment %>
+          <%= f.text_area :text, class:"item-comment-input", placeholder:"この商品の質問等は、こちらに記載し送信してください" %>
+          <b><%= f.submit "送信", class:"item-commnet-send"%></b>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="item-comments-all" id="comments">
+      <% if @itemcomments.present? %>
+        <% @itemcomments.reverse_each do |itemcomment| %> 
+          <div class="item-comment-top">
+            <div class="item-comment-name">
+              <% if itemcomment.shopkeeper_id.present? %>
+                <%= itemcomment.item.shop.name %>
+              <% elsif itemcomment.customer_id.present? %>
+                <%= itemcomment.customer.nickname %>
+              <% end %>
+            </div>
+            <div class="item-commnet-time">
+              <%= itemcomment.created_at %>
+            </div>
+          </div>
+          <div class="item-comment-text">
+            <%= simple_format(itemcomment.text) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
