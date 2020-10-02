@@ -5,6 +5,7 @@
   </div>
   <div class="user-header">
     <% if customer_signed_in? %>
+      <%= link_to "マイページへ", customer_path(current_customer), class:"header-user" %>
       <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
     <% elsif shopkeeper_signed_in? && current_shopkeeper.shop.nil? %>
       引き続き店舗の設定を行いましょう！
@@ -16,7 +17,8 @@
     <% else %>
       
       <%= link_to "新規登録", new_customer_registration_path, class:"header-user" %>
-      <%= link_to "ログイン", new_shopkeeper_session_path, class:"header-user" %>
+      <%= link_to "ログイン", new_customer_session_path, class:"header-user" %>
+      <%= link_to "ログイン（店主の方はこちら）", new_shopkeeper_session_path, class:"header-user" %>
       <%= link_to "新規出店の方はこちら", new_shopkeeper_registration_path, class:"header-user" %>
     <% end %>
   </div>

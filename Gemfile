@@ -68,3 +68,4 @@ gem 'image_processing', '~>1.2'
 gem "aws-sdk-s3", require: false
 gem 'ancestry'
 gem 'font-awesome-rails'
+gem 'payjp'

@@ -1,39 +1,44 @@
-<h2>新規登録</h2>
+<%= render 'shared/header' %>  
 
-<%= form_for(@customer, url: customer_registration_path) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @customer %>
+<div class="user-signup">
+  <div class="user-signup-top">
+    新規登録
+  <div>
+  <div class="user-signup-input">
+    <%= form_for(@customer, url: customer_registration_path) do |f| %>
+      <%= render "devise/shared/error_messages", resource: @customer %>
 
-  <div class="field">
-    <label>ニックネーム</label><br />
-    <%= f.text_field :nickname %>
-  </div>
+      <div class="field">
+        <label>ニックネーム</label><br />
+        <%= f.text_field :nickname, class:"field-input" %>
+      </div>
 
-  <div class="field">
-    <label>苗字</label><br />
-    <%= f.text_field :family_name %>
-  </div>
+      <div class="field">
+        <label>苗字</label><br />
+        <%= f.text_field :family_name, class:"field-input"  %>
+      </div>
 
-  <div class="field">
-    <label>名前</label><br />
-    <%= f.text_field :first_name %>
-  </div>
+      <div class="field">
+        <label>名前</label><br />
+        <%= f.text_field :first_name, class:"field-input"  %>
+      </div>
 
-  <div class="field">
-    <label>電話番号</label><br />
-    <%= f.text_field :phone_num, maxlength:"11" %>
-  </div>
+      <div class="field">
+        <label>電話番号</label><br />
+        <%= f.text_field :phone_num, maxlength:"11", class:"field-input"  %>
+      </div>
 
-  <div class="field">
-    <label>メールアドレス</label><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <label>メールアドレス</label><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"field-input"  %>
+      </div>
 
-  <div class="field">
-    <div class='form-text-wrap'>
-      <label class="form-text">生年月日</label>
-    </div>      
-    <div class='input-birth-wrap'>
-      <%= raw sprintf(
+      <div class="field-birth">
+        <div class='form-text-wrap'>
+          <label class="form-text">生年月日</label>
+        </div>      
+        <div class='input-birth-wrap'>
+          <%= raw sprintf(
                   f.date_select(
                     :birthday,
                     class:'select-birth',
@@ -44,25 +49,27 @@
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-    </div>
-  </div>
+          </div>
+      </div>
 
-  <div class="field">
-    <label>パスワード</label>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <label>パスワード</label>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class:"field-input"  %>
+      </div>
 
-  <div class="field">
-    <label>パスワード（確認用）</label><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <label>パスワード（確認用）</label><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"field-input"  %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Next" %>
+      <div class="actions">
+        <%= f.submit "Next", class:"action-link" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <%= render "devise/shared/links" %>

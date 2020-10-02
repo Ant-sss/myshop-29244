@@ -25,7 +25,7 @@
 }
 
 .shops-show-shop-name {
-  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Nunito', 'Kosugi', sans-serif;
   font-size: 35px;
 }
 
@@ -174,13 +174,13 @@
 
 .shops-show-shop-text {
   margin-top: 20px;
-  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Nunito', 'Kosugi', sans-serif;
   font-size: 18px;
   color: #444444;
 }
 
 .shops-show-items-show-title {
-  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Nunito', 'Kosugi', sans-serif;
   font-size: 20px;
   padding-bottom: 5px;
   border-bottom: solid 1px #777777;
@@ -207,7 +207,7 @@
 .shops-show-item-link {
   text-decoration: none;
   color: #444444;
-  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Nunito', 'Kosugi', sans-serif;
 }
 
 .shops-show-item-link:hover {

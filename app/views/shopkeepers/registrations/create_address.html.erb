@@ -1,7 +1,18 @@
-<h2>登録が完了しました</h2>
-<%= link_to "トップへ戻る", root_path%>
-  <div class="link_to_shop" >
+<%= render 'shared/header' %>  
+
+<div class="user-signup">
+  <div class="user-signup-top">
+    登録完了
+    <%= link_to "トップへ戻る", root_path, class:"action-link"%>
+  <div>
+  <div class="shopkeeper-only">
     引き続き店舗の設定を行いましょう！
-    <%= link_to '店舗の設定を行う', '/shops/new' %>
-    <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete %>
+    <div class="shopkeeper-link-to">
+      <%= link_to '店舗の設定を行う', '/shops/new', class:"action-link" %>
+    </div>
+    <div class="shopkeeper-link-to">
+      <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"action-link"  %>
+    </div>
   </div>
+</div>
+
