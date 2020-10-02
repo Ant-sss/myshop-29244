@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'customers/show'
   devise_for :customers, controllers: {
     registrations: 'customers/registrations',
     sessions: 'customers/sessions',
@@ -27,6 +28,10 @@ Rails.application.routes.draw do
       resources :tweetcomments, only: :create
     end
   end
+  resources :customers, only: [:show]
+  resources :resodences, only: [:show, :update]
+  resources :shopkeepers, only: [:show, :update]
+  resources :address, only: [:show, :update]
 
   root to: "shops#index"
 

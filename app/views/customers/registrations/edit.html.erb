@@ -4,6 +4,26 @@
   <%= render "customers/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.email_field :nickname, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :family_name %><br />
+    <%= f.email_field :family_name, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.email_field :first_name, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_num %><br />
+    <%= f.email_field :phone_num, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -13,7 +33,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>（パスワードの変更をしない場合は空白のままで大丈夫です）</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -27,7 +47,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>（現在のパスワード）</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
