@@ -1,8 +1,14 @@
 <%= render 'shared/header' %>
+
+
 <div class="top">
+
 <div class="main-left">
 </div>
 <div class="main-right">
+  <div class="main-right-image">
+    <%= image_tag '/top.png',class:"main-image"%>
+  </div>
   <ul class="main-shops">
   <% @shops.each do |shop| %>
     <li class="main-shops-list">
