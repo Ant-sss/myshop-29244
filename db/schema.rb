@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_033611) do
+ActiveRecord::Schema.define(version: 2020_10_03_042946) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -107,6 +107,15 @@ ActiveRecord::Schema.define(version: 2020_10_02_033611) do
     t.index ["shopkeeper_id"], name: "index_items_on_shopkeeper_id"
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_purchases_on_customer_id"
+    t.index ["item_id"], name: "index_purchases_on_item_id"
+  end
+
   create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code"
     t.integer "prefecture_id", null: false
@@ -175,6 +184,8 @@ ActiveRecord::Schema.define(version: 2020_10_02_033611) do
   add_foreign_key "itemcomments", "shopkeepers"
   add_foreign_key "items", "shopkeepers"
   add_foreign_key "items", "shops"
+  add_foreign_key "purchases", "customers"
+  add_foreign_key "purchases", "items"
   add_foreign_key "tweetcomments", "customers"
   add_foreign_key "tweetcomments", "shopkeepers"
   add_foreign_key "tweetcomments", "tweets"
