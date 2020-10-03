@@ -6,21 +6,21 @@
   <div class="shops-show-right">
     <div class="shops-show-shop">
       
-      <div class="shops-show-shop-name">
+      <div class="shop-name">
         <%= @shop.name %>
       </div>
       <div class="shops-show-shop-top">
         <div class="shops-show-shopkeeper-link">
           <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
-            <p class="shops-show-item-btn">
-              <b><%= link_to "出品", new_shop_item_path(@shop.id), class:"shops-show-new" %></b>
+            <p class="shop-btn">
+              <%= link_to "出品", new_shop_item_path(@shop.id), class:"action-link" %>
             </p>
-            <p class="shops-show-shop-edit">
-              <b><%= link_to "店舗の編集・削除", edit_shop_path(@shop.id), class:"shops-show-edit"%></b>
+            <p class="shop-btn">
+              <%= link_to "店舗の編集・削除", edit_shop_path(@shop.id), class:"action-link"%>
             </p>
           <% end %>
-          <p class="shops-show-item-btn">
-            <b><%= link_to "投稿", shop_tweets_path(@shop.id), class:"shops-show-new" %></b>
+          <p class="shop-btn">
+            <%= link_to "投稿", shop_tweets_path(@shop.id), class:"action-link" %>
           </p>
         </div>
       </div>
@@ -28,7 +28,7 @@
         <%= image_tag @shop.image, class:"shops-show-image" %>
       </div>
       <div class="shops-show-shop-text">
-        <%= @shop.text %>
+        <%= simple_format(@shop.text) %>
       </div>
       <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
 
@@ -42,17 +42,17 @@
       <ul class="shops-show-items-show">
         <% @items.each do |item| %>
         <li class="shops-show-items-list">
-          <%= link_to shop_item_path(@shop.id, item.id),class:"shops-show-item-link" do%>
-            <div class="shops-show-items_image">                
+          <%= link_to shop_item_path(@shop.id, item.id), class:"shops-show-item-link" do %>
+            <div class="shops-show-items-image">                
               <%= image_tag item.image, class: "shops-show-item-image" %>
             </div>
             <div class="shops-show-items-detail">
-            <div class="shops-show-items-name">
-              <%= item.name %>
-            </div>
-            <div class="shops-show-items_price">
-              ￥<%= item.price %>
-            </div>
+              <div class="shops-show-items-name">
+                <%= item.name %>
+              </div>
+              <div class="shops-show-items_price">
+                ￥<%= item.price %>
+              </div>
             </div>
           <% end %>
           </li>

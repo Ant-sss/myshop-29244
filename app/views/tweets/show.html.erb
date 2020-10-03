@@ -18,7 +18,7 @@
   </div>
   <div class="tweet-delete">
     <% if shopkeeper_signed_in? && current_shopkeeper.id == @tweet.shopkeeper_id %>
-      <%= link_to "削除", shop_tweet_path(@tweet), method: :delete, class:"tweets-delete-link" %>
+      <%= link_to "削除", shop_tweet_path(@tweet), method: :delete, class:"action-link" %>
     <% end %>
   </div>
 

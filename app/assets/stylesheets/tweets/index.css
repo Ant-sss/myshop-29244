@@ -18,8 +18,18 @@
 }
 
 .tweet-index-shop-image {
+  width: 17vh;
+  height: 17vh;
   object-fit: cover;
   border-radius: 50%;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.tweet-index-shop-image:hover {
+  opacity:0.7;
 }
 
 .tweets-new-link {
@@ -45,6 +55,15 @@
   opacity:0.7;
 }
 
+.tweet-shop-name a{
+  color: black;
+  text-decoration: none;
+}
+
+.tweet-shop-name a:hover {
+  color: black;
+}
+
 .shop-tweets {
   display: flex;
   justify-content: center;
@@ -65,8 +84,8 @@
 
 .tweet-list {
   margin: 10px 5px;
-  width: 300px;
-  height: 400px;
+  width: 310px;
+  height: 310px;
   -webkit-transition: 0.3s ease-out;
   -moz-transition: 0.3s ease-out;
   -o-transition: 0.3s ease-out;
@@ -75,4 +94,9 @@
 
 .tweet-list:hover {
   opacity:0.7;
+}
+
+.tweet-image {
+  width: 35vh;
+  height: 33vh;
 }

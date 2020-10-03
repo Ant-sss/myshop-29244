@@ -1,45 +1,28 @@
 .shop-new {
-  font-family: 'Nunito', 'c', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 80px
+  padding: 20px;
+  font-family: 'Nunito', 'Kosugi', sans-serif;
+  margin-top: 40px;
 }
 
-.sho-new-shop {
-  width: 650px;
+.shop-field {
+  padding-top: 15px;
 }
 
-.shop-new-shop-name {
-  font-size: 20px;
-  margin: 5px 0 0 0;
-}
-
-.shop-new-shop-name-input {
-  background: #fff;
+.shop-field-input {
   border: 1px solid #999999;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  font-size: 14px;
+  font-size: 13px;
   padding: 10px;
-  height: 40px;
-  width: 600px;
-  margin-bottom: 20px;
+  height: 45px;
+  width: 400px;
 }
 
-.shop-new-shop-images {
-  font-size: 20px;
-  margin: 5px 0 0 0;
-}
-
-.shop-new-shop-image {
-  padding-bottom: 20px;
-  width: 460px;
-}
-
-.shop-new-shop-image-label {
+.shop-label {
   border: 1px solid #999999;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -53,7 +36,7 @@
   width: 230px;
 }
 
-.shop-new-shop-image-label::before{
+.shop-label::before{
   content:"＋";
   color:#333333;
   font-size:20px;
@@ -64,12 +47,7 @@
   top:50%;
 }
 
-.shop-new-shop-category {
-  font-size: 20px;
-  margin: 20px 0 0 0;
-}
-
-.shop-category {
+.shop-field-select {
   background:#FFFFFF;
   border: 1px solid #999999;
   border-radius: 0;
@@ -88,37 +66,15 @@
   margin: 20px 0 0 0;
 }
 
-.shop-new-shop-text-input {
+.shop-field-area-input {
   border: 1px solid #999999;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   font-size: 13px;
   padding: 10px;
-  height: 120px;
-  width: 600px;
-}
-
-.shop-new-open {
-  background-color: #FFFFFF;
-  border:1px solid #FFAF42;
-  border-radius: 2px;
-  color: #dbb34d;
-  display: block;
-  font-size: 14px;
-  padding: 14px;
-  text-align: center;
-  text-decoration: none;
-  transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
-  width: 230px;
-}
-
-.shop-new-open:hover {
-  background-color: #FFAF42;
-  color: #FFFFFF;
+  height: 150px;
+  width: 400px;
 }
 
 .shop-open-close {
@@ -151,4 +107,10 @@
 
 .shop-new-imformation {
   margin-top: 45px;
+}
+
+.edit-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
 }
