@@ -3,12 +3,16 @@
 <div class="tweet-index">
   <div class="tweet-shop">
     <div class="tweet-shop-image">
-      <%= image_tag @shop.image.variant(resize: '200x200'), class:"tweet-index-shop-image"%>
+      <%= link_to shop_path(@shop) do %>
+        <%= image_tag @shop.image, class:"tweet-index-shop-image"%>
+      <% end %>
     </div>
     <div class="tweet-shop-title">
       <div class="tweet-shop-top">
         <div class="tweet-shop-name">
-          <h3><%= @shop.name %></h3>
+          <%= link_to shop_path(@shop) do %>
+            <h3><%= @shop.name %></h3>
+          <% end %>
         </div>
         <div class="tweet-shop-tweet">
           <% if shopkeeper_signed_in? && current_shopkeeper.id == @shop.shopkeeper_id %>
@@ -23,12 +27,12 @@
   <div class="tweet-center">
   </div>
   <div class="tweets">
-    <div class="tweet-image">
+    <div class="tweet-images">
       <ul class="shop-tweets">
         <% @tweets.each do |tweet| %>
         <li class=" tweet-list">
           <%= link_to shop_tweet_path(@shop.id, tweet.id) do %>
-            <%= image_tag tweet.image.variant(resize: '300x400') %>
+            <%= image_tag tweet.image, class:"tweet-image" %>
           <% end %>
         </li>
         <% end %>

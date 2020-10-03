@@ -108,3 +108,9 @@
 .shop-new-imformation {
   margin-top: 45px;
 }
+
+.edit-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}

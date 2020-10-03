@@ -7,7 +7,9 @@
 </div>
 <div class="main-right">
   <div class="main-right-image">
-    <%= image_tag '/top.png',class:"main-image"%>
+    <%= link_to "#" do%>
+    <%= image_tag '/top.png',class:"main-image" %>
+    <% end %>
   </div>
   <ul class="main-shops">
   <% @shops.each do |shop| %>
