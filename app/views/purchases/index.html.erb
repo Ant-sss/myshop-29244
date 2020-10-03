@@ -1,0 +1,27 @@
+<%= render 'shared/header' %>
+
+<div class="purchase">
+  <div class="purchase-top">
+    <div class="item-show-shop-name">
+      <%= link_to  @shop.name, shop_path(@shop.id), class:"item-show-shop-link"%>
+    </div>
+    <div class="item-show-image">
+      <%= image_tag @item.image, class:"item-show-item-image" %>
+    </div>
+    <div class="item-show-item-detail">
+      <div class="item-show-item-name">
+        <%= @item.name %>
+      </div>
+      <div class="item-show-item-price">
+        ￥<%= @item.price %>
+      </div>
+    </div>
+  </div>
+  <div class="purchase-bottom">
+    この商品を購入しますか？（購入にはカード情報の登録が先に必要です。）
+    <div class="purchase-info">
+      <%= link_to "カード登録", new_card_path, class:"action-link"%>
+      <%= link_to "購入", shop_item_purchases_path(@shop, @item), method: :create, class:"action-link" %>
+    </div>
+  </div>
+</div>

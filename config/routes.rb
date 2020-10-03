@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'cards/new'
   get 'customers/show'
+
   devise_for :customers, controllers: {
     registrations: 'customers/registrations',
     sessions: 'customers/sessions',
@@ -24,14 +25,19 @@ Rails.application.routes.draw do
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :items, only: [:show, :new, :create, :edit, :update ,:destroy] do
       resources :itemcomments, only: :create
+      resources :purchases, only: [:index, :create] do
+        collection do
+          get 'done'
+        end
+      end
     end
     resources :tweets, only: [:index, :show, :new, :create, :destroy] do
       resources :tweetcomments, only: :create
     end
   end
-  resources :customers, only: [:show]
+  resources :customers, only: :show
   resources :residences, only: [:show, :update]
-  resources :shopkeepers, only: [:show]
+  resources :shopkeepers, only: :show
   resources :address, only: [:show, :update]
   resources :cards, only: [:new, :create]
 
