@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   end
 
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'search'
+    end
     resources :items, only: [:show, :new, :create, :edit, :update ,:destroy] do
       resources :itemcomments, only: :create
       resources :purchases, only: [:index, :create] do
