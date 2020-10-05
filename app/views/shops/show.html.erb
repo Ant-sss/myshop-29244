@@ -6,21 +6,24 @@
       <h4>このお店の商品を探す</h4>
       <ul class="item-search">
         <%= search_form_for @p, url:search_shop_items_path(@shop.id) do |f| %>
-          <li>カテゴリー</li>
-            <%= f.collection_select :itemcategory_id_eq, Itemcategory.find(@shop.itemcategory_id).children, :id, :name, include_blank:"指定なし", class:"search-items-select" %>
-          <li>発送までの日数</li>
-            <%= f.collection_select(:shipday_id_eq, @shipday, :id, :name, {include_blank:"指定なし"}, {class:"search-items-select"}) %>
-          <li>価格</li>
+          <li>カテゴリー
+            <%= f.collection_select(:itemcategory_id_eq, Itemcategory.find(@shop.itemcategory_id).children, :id, :name, {include_blank:"指定なし"}, {class:"search-items-select"}) %></li>
+          <li>発送までの日数
+            <%= f.collection_select(:shipday_id_eq, @shipday, :id, :name, {include_blank:"指定なし"}, {class:"search-items-select"}) %></li>
+          <li>価格<br>
             <%= f.radio_button :price_lteq, "" %>
-              指定なし
+              指定なし<br>
             <%= f.radio_button :price_lteq, "1000" %>
-              1,000円以下
+              1,000円以下<br>
             <%= f.radio_button :price_lteq, "2500" %>
-              2,500円以下
+              2,500円以下<br>
             <%= f.radio_button :price_lteq, "5000" %>
               5,000円以下
-          <%= f.submit "完了", class:"search-link"%>
-          <%= link_to "クリア", shop_path(@shop), class:"search-link" %>
+          </li>
+          <div class="search-action">
+            <%= link_to "クリア", shop_path(@shop), class:"search-link" %>
+            <%= f.submit "完了", class:"search-link"%>
+          </div>
         <% end %>
       </ul>
     </div>
@@ -29,7 +32,7 @@
     <div class="shops-show-shop">
       
       <div class="shop-name">
-        <%= @shop.name %>
+        <%= link_to  @shop.name, shop_path(@shop.id), class:"item-show-shop-link"%>
       </div>
       <div class="shops-show-shop-top">
         <div class="shops-show-shopkeeper-link">
