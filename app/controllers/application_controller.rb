@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   def search
     @result_shops = @a.result.includes(:itemcategory)
+    @result_items = @p.result.includes(:itemcategory)
+    # binding.pry
   end
 
   protected
@@ -25,6 +27,10 @@ class ApplicationController < ActionController::Base
     @itemcategory_parent_id = Itemcategory.where(ancestry: nil)
   end
 
+  def search_item
+    @p = Item.ransack(params[:q])
+    @shipday = Shipday.where.not(id: 1)
+  end
 
 
 end
