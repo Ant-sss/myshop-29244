@@ -4,21 +4,19 @@
 <div class="top">
 
   <div class="main-left">
-    <h2>探す</h2>
     <div class="search-shops">
-      お店から探す
+      <h4>お店を探す</h4>
       <ul class="shop-search">
-        <%= search_form_for @a, url:search_shops_path do |f| %>
-          <li><%= f.collection_select :itemcategory_id_eq, @itemcategory_parent_id, :id, :name, include_blank:"指定なし" %></li>
-          <br>
-          <%= f.submit "検索", class:"shop-search-btn" %>
+        <% @itemcategory_parent_id.each do |parent| %>
+          <%= link_to search_shops_path(@a, :'q[itemcategory_id_eq' => "#{parent.id}"), class:"parent-category" do %>
+            <li><%= parent.name %></li>
+          <% end %>
         <% end %>
       </ul>
     </div>
-    <div class="search-items">
-    </div>
   </div>
   <div class="main-right">
+    <% if @result_shops.present? %>
     <ul class="main-shops">
       <% @result_shops.each do |shop| %>
         <li class="main-shops-list">
@@ -31,5 +29,9 @@
         </li>
       <% end %>
     </ul>
+    <% else %>
+      お探しの商品は見つかりませんでした
+      <%= link_to "トップへ戻る", root_path, class:"action-link" %>
+    <% end %>
   </div>
 </div>

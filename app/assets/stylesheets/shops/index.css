@@ -4,11 +4,47 @@
   justify-content: center;
   overflow: scroll;
   margin-top: 30px;
+  font-family: 'Nunito', 'Kosugi', sans-serif;
 }
 
 .main-left {
   width: 200px;
+}
+
+.search-shops h4 {
+  color: #333333;
+  border-bottom:1px solid #DDDDDD;
+  width: 170px;
+}
+.shop-search {
+  list-style: none;
+  padding-left: 0;
+}
+
+.shop-search li {
+  background-color: #FFFFFF;
+  border-bottom:1px solid #DDDDDD;
+  border-radius: 2px;
+  color: #999999;
+  display: block;
+  font-size: 14px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  width: 170px;
+}
+
+.shop-search li:hover {
   background-color: #F5F5F5;
+  color: #333333;
+}
+
+.parent-category {
+  text-decoration: none;
 }
 
 .main-right {

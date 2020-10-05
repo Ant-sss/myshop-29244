@@ -27,6 +27,9 @@ Rails.application.routes.draw do
       get 'search'
     end
     resources :items, only: [:show, :new, :create, :edit, :update ,:destroy] do
+      collection do
+        get 'search'
+      end
       resources :itemcomments, only: :create
       resources :purchases, only: [:index, :create] do
         collection do

@@ -4,26 +4,20 @@
 <div class="top">
 
   <div class="main-left">
-    <h2>探す</h2>
     <div class="search-shops">
-      お店から探す
+      <h4>お店を探す</h4>
       <ul class="shop-search">
-        <%= search_form_for @a, url:search_shops_path do |f| %>
-          <li><%= f.collection_select :itemcategory_id_eq, @itemcategory_parent_id, :id, :name, include_blank:"指定なし" %></li>
-          <br>
-          <%= f.submit "検索", class:"shop-search-btn" %>
+        <% @itemcategory_parent_id.each do |parent| %>
+          <%= link_to search_shops_path(@a, :'q[itemcategory_id_eq' => "#{parent.id}"), class:"parent-category" do %>
+            <li><%= parent.name %></li>
+          <% end %>
         <% end %>
       </ul>
-    </div>
-    <div class="search-items">
-      商品を探す
-      <ul class="item-searh">
-      
     </div>
   </div>
   <div class="main-right">
     <div class="main-right-image">
-      <%= link_to "#" do%>
+      <%= link_to "#" do %>
         <%= image_tag '/top.png',class:"main-image" %>
       <% end %>
     </div>
