@@ -1,8 +1,7 @@
 <%= render 'shared/header' %>
 
-
+  
 <div class="top">
-
   <div class="main-left">
     <div class="search-shops">
       <h4>お店を探す</h4>
@@ -16,11 +15,13 @@
     </div>
   </div>
   <div class="main-right">
-    <div class="main-right-image">
-      <%= link_to "#" do %>
-        <%= image_tag '/top.png',class:"main-image" %>
-      <% end %>
+  <div class="top-sale">
+    <div class="sale-image">
+    <%= link_to "#" do %>
+      <%= image_tag '/welcome.png',class:"main-image" %>
+    <% end %>
     </div>
+  </div>
     <ul class="main-shops">
       <% @shops.each do |shop| %>
         <li class="main-shops-list">

@@ -58,8 +58,9 @@
     
   </div>
   <div class="item-show-bottom">
-  <div class="item-show-purchase">
-  <%= link_to "購入", shop_item_purchases_path(@shop, @item), class:"action-link"%>
+    <div class="item-show-purchase">
+      <%= link_to "購入", shop_item_purchases_path(@shop, @item), class:"action-link"%>
+    </div>
   </div>
 
   <div class="item-comments">
@@ -67,7 +68,7 @@
       <% if shopkeeper_signed_in? || customer_signed_in? %>
         <%= form_with(model: [@shop, @item, @itemcomment], class:"item-comment", local:true) do |f| %>
           <%= render 'shared/error_messages', model: @itemcomment %>
-          <%= f.text_area :text, class:"item-comment-input", placeholder:"この商品の質問等は、こちらに記載し送信してください" %>
+          <%= f.text_area :text, class:"item-comment-input", placeholder:"この商品の質問等は、こちらに記載し送信してください" %>       
           <b><%= f.submit "送信", class:"item-commnet-send"%></b>
         <% end %>
       <% end %>
