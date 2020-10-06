@@ -1,7 +1,10 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
-<div class="header">
+<div class="wrapper">
+  <div class="wrapper-inner">
   <div class="top-header">
     <h1><%= link_to "MyShop", root_path, class:"myshop" %></h1>
+  </div>
+  <div class="search-form">
   </div>
   <div class="user-header">
     <% if customer_signed_in? %>
@@ -22,5 +25,5 @@
       <%= link_to "新規出店の方はこちら", new_shopkeeper_registration_path, class:"header-user" %>
     <% end %>
   </div>
-    
+  </div>
 </div>

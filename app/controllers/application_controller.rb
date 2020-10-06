@@ -1,14 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_premitted_parameters, if: :devise_controller?
   before_action :basic_auth
-  before_action :search_shop
-  before_action :search_item
-
-  def search
-    @result_shops = @a.result.includes(:itemcategory)
-    @result_items = @p.result.includes(:itemcategory)
-    # binding.pry
-  end
 
   protected
 
@@ -21,17 +13,6 @@ class ApplicationController < ActionController::Base
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
   end
-
-  def search_shop
-    @a = Shop.ransack(params[:q])
-    @itemcategory_parent_id = Itemcategory.where(ancestry: nil)
-  end
-
-  def search_item
-    @p = Item.ransack(params[:q])
-    @shipday = Shipday.where.not(id: 1)
-  end
-
 
 end
 
