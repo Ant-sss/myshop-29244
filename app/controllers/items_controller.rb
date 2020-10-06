@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :shop_set
   before_action :item_set, only: [:show, :edit, :update, :destroy]
+  before_action :search_item, only: :search
 
   def new
     @item = Item.new
@@ -41,6 +42,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @result_items = @p.result.includes(:itemcategory)
+  end
+
   private
 
   def item_params
@@ -55,4 +60,9 @@ class ItemsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
   end
 
+  def search_item
+    shop = Shop.find(params[:shop_id])
+    @p = shop.items.ransack(params[:q])
+    @shipday = Shipday.where.not(id: 1)
+  end
 end

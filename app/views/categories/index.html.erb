@@ -1,0 +1,108 @@
+<%= render 'shared/header' %>
+
+
+<div class="top">
+
+  <div class="main-left">
+    <h2>探す</h2>
+    <div class="search-shops">
+      お店から探す
+      <ul class="shop-search">
+        <%= search_form_for @a, url:search_shops_path do |f| %>
+          <li><%= f.collection_select :itemcategory_id_eq, @itemcategory_parent_id, :id, :name, include_blank:"指定なし" %></li>
+          <br>
+          <%= f.submit "検索", class:"shop-search-btn" %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="search-items">
+      商品を探す
+      <ul class="item-searh">
+      <%= search_form_for @p, url:search_shop_items_path(@shop.id) do |f| %>
+        <div class="category-search">
+          カテゴリー選択
+          <li id="lists">アクセサリー</li>
+            <%= f.collection_select :itemcategory_id_eq, @itemcategory_accessories_id, :id, :name, include_blank:"指定なし", class:"search-select-hidden" %>
+          <li id="lists">洋服</li>
+            <%= f.collection_select :itemcategory_id_eq, @itemcategory_clothes_id, :id, :name, include_blank:"指定なし", class:"search-select-hidden" %>
+          <li id="lists">雑貨</li>
+            <%= f.collection_select :itemcategory_id_eq, @itemcategory_goods_id, :id, :name, include_blank:"指定なし", class:"search-select-hidden" %>
+          <li id="lisets">家具</li>
+            <%= f.collection_select :itemcategory_id_eq, @itemcategory_furnitures_id, :id, :name, include_blank:"指定なし", class:"search-select-hidden" %>
+          <li id="lisets">食べ物</li>
+            <%= f.collection_select :itemcategory_id_eq, @itemcategory_foods_id, :id, :name, include_blank:"指定なし", class:"search-select-hidden" %>
+          <li id="lisets">写真</li>
+            <%= f.collection_select :itemcategory_id_eq, @itemcategory_pictures_id, :id, :name, include_blank:"指定なし", class:"search-select-hidden" %>
+          <li id="lisets">絵</li>
+            <%= f.collection_select :itemcategory_id_eq, @itemcategory_paintings_id, :id, :name, include_blank:"指定なし", class:"search-select-hidden" %>
+        </div>
+        <div class="価格">
+          <li>価格
+            <br>
+            <%= f.radio_button :price_lteq, " " %>
+              指定なし
+            <br>
+            <%= f.radio_button :price_lteq, "500" %>
+              500円以下
+            <br>
+            <%= f.radio_button :price_lteq, "1000" %>
+              1000円以下
+            <br>
+            <%= f.radio_button :price_lteq, "2500" %>
+              2500円以下
+            <br>
+            <%= f.radio_button :price_lteq, "5000"%>
+              5000円以下
+          </li>
+          <br>
+        </div>
+        <%= f.submit "完了", class:"search-btn" %>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="main-right">
+  <% if @result_shops.present? %>
+      <ul class="main-shops">
+        <% @result_shops.each do |shop| %>
+          <li class="main-shops-list">
+            <%= link_to shop_path(shop.id), class:"main-shops-link" do %>
+              <div class="main-shop-name">
+                <%= shop.name %>
+              </div>
+              <%= image_tag shop.image, class: "main-shop-image" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      お探しのお店は見つかりませんでした。
+      <%= link_to "トップへ戻る", root_path, class:"action-link" %>
+    <% end %>
+  </div>
+    <% if @render_items.present? %>
+      <ul class="shops-show-items-show">
+        <% @result_items.each do |item| %>
+          <li class="shops-show-items-list">
+            <%= link_to shop_item_path(@shop.id, item.id), class:"shops-show-item-link" do %>
+              <div class="shops-show-items-image">                
+                <%= image_tag item.image, class: "shops-show-item-image" %>
+              </div>
+              <div class="shops-show-items-detail">
+                <div class="shops-show-items-name">
+                  <%= item.name %>
+                </div>
+                <div class="shops-show-items_price">
+                  ￥<%= item.price %>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      お探しの商品は見つかりませんでした
+      <%= link_to "トップへ戻る", root_path, class:"action-link" %>
+    <% end %>
+  </div>
+</div>

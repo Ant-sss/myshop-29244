@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
   before_action :shop_set, only: [:show, :edit, :update, :destroy]
+  before_action :search_shop, only: [:index, :search]
+  before_action :search_item, only: :show
 
   def index
     @shops = Shop.all
@@ -40,6 +42,10 @@ class ShopsController < ApplicationController
       render "edit"
     end
   end
+
+  def search
+    @result_shops = @a.result.includes(:itemcategory)
+  end
   
   private
 
@@ -49,5 +55,16 @@ class ShopsController < ApplicationController
 
   def shop_set
     @shop = Shop.find(params[:id])
+  end
+
+  def search_shop
+    @a = Shop.ransack(params[:q])
+    @itemcategory_parent_id = Itemcategory.where(ancestry: nil)
+  end
+
+  def search_item
+    shop = Shop.find(params[:id])
+    @p = shop.items.ransack(params[:q])
+    @shipday = Shipday.where.not(id: 1)
   end
 end

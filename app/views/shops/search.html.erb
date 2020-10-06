@@ -16,13 +16,9 @@
     </div>
   </div>
   <div class="main-right">
-    <div class="main-right-image">
-      <%= link_to "#" do %>
-        <%= image_tag '/top.png',class:"main-image" %>
-      <% end %>
-    </div>
+    <% if @result_shops.present? %>
     <ul class="main-shops">
-      <% @shops.each do |shop| %>
+      <% @result_shops.each do |shop| %>
         <li class="main-shops-list">
           <%= link_to shop_path(shop.id), class:"main-shops-link" do %>
             <div class="main-shop-name">
@@ -33,5 +29,9 @@
         </li>
       <% end %>
     </ul>
+    <% else %>
+      お探しのお店は見つかりませんでした
+      <%= link_to "トップへ戻る", root_path, class:"action-link" %>
+    <% end %>
   </div>
 </div>
