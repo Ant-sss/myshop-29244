@@ -5,10 +5,12 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
+    @favorites = Favorite.where(customer_id: current_customer.id).all
   end
 
   def show
     @items = @shop.items
+    @favorite = current_customer.favorites.find_by(shop_id: params[:id])
   end
 
   def new

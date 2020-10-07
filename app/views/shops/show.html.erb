@@ -33,7 +33,12 @@
     <div class="shops-show-shop">
       
       <div class="shop-name">
-        <%= link_to  @shop.name, shop_path(@shop.id), class:"item-show-shop-link"%>
+        <%= link_to  @shop.name, shop_path(@shop.id), class:"item-show-shop-link" %>
+          <% if @favorite.present? %>
+            <%= link_to "お気に入り削除", shop_favorite_path(@shop), method: :delete %>
+          <% else %>
+            <%= link_to "お気に入り登録", shop_favorites_path(@shop), method: :post %>
+          <% end %>
       </div>
       <div class="shops-show-shop-top">
         <div class="shops-show-shopkeeper-link">
