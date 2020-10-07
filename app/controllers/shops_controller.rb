@@ -9,7 +9,9 @@ class ShopsController < ApplicationController
 
   def show
     @items = @shop.items
-    @favorite = current_customer.favorites.find_by(shop_id: params[:id])
+    if customer_signed_in?
+      @favorite = current_customer.favorites.find_by(shop_id: params[:id])
+    end
   end
 
   def new
