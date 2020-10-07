@@ -37,7 +37,7 @@
           <% if customer_signed_in? %>
             <% if @favorite.present? %>
               <%= link_to shop_favorite_path(@shop), method: :delete, class:"favorite-delete" do %>
-                <i class="fas fa-heart-broken"></i>お気に入り解除
+                <i class="fas fa-heart"></i>お気に入り中
               <% end %>
             <% else %>
               <%= link_to shop_favorites_path(@shop), method: :post, class:"favorite-new" do %>
