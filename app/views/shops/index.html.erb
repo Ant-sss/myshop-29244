@@ -11,10 +11,10 @@
             <li><%= parent.name %></li>
           <% end %>
         <% end %>
-      </ul>
-      <%= link_to favorites_path do %>
-        <h4>お気に入り</h4>
+      <%= link_to favorites_path, class:"parent-category" do %>
+        <li>お気に入り</li>
       <% end %>
+      </ul>
     </div>
   </div>
   <div class="main-right">
