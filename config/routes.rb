@@ -40,12 +40,14 @@ Rails.application.routes.draw do
     resources :tweets, only: [:index, :show, :new, :create, :destroy] do
       resources :tweetcomments, only: :create
     end
+    resources :favorites, only: [:create, :destroy]
   end
   resources :customers, only: :show
   resources :residences, only: [:show, :update]
   resources :shopkeepers, only: :show
   resources :address, only: [:show, :update]
   resources :cards, only: [:new, :create]
+  resources :favorites, only: :index
 
   root to: "shops#index"
 

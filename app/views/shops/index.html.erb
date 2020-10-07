@@ -11,6 +11,11 @@
             <li><%= parent.name %></li>
           <% end %>
         <% end %>
+        <% if customer_signed_in? %>
+          <%= link_to favorites_path, class:"parent-category" do %>
+            <li>お気に入り</li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
