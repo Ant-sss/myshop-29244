@@ -5,7 +5,6 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
-    @favorites = Favorite.where(customer_id: current_customer.id).all
   end
 
   def show

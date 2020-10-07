@@ -1,0 +1,21 @@
+<%= render 'shared/header' %>
+
+<div class="favorites">
+  <div class="favorite-title">
+    <i class="far fa-heart fa-2x"></i>  <%= current_customer.nickname %> 様のお気に入り
+  </div>
+  <div class="favorites-list">
+    <ul class="main-shops">
+      <% @favorites.each do |favorite| %>
+        <li class="main-shops-list">
+          <%= link_to shop_path(favorite.shop.id), class:"main-shops-link" do %>
+            <div class="main-shop-name">
+              <%= favorite.shop.name %>
+            </div>
+            <%= image_tag favorite.shop.image, class: "main-shop-image" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.favorites {
+  font-family: 'Nunito', 'Kosugi', sans-serif;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.favorite-title {
+  width: 980px;
+  
+  height: 70px;
+  font-size: 30px;
+  margin-bottom: 50px;
+  padding-left: 25px;
+}
+
+.favorites .far {
+  color: #FF6666;
+}
+

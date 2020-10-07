@@ -1,5 +1,10 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @favorites = Favorite.where(customer_id: current_customer.id).all
+    
+  end
+
   def create
     favorite = current_customer.favorites.new(params_favorite)
     if favorite.save

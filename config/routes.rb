@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   resources :shopkeepers, only: :show
   resources :address, only: [:show, :update]
   resources :cards, only: [:new, :create]
+  resources :favorites, only: :index
 
   root to: "shops#index"
 
