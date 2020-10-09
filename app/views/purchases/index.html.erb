@@ -18,10 +18,54 @@
     </div>
   </div>
   <div class="purchase-bottom">
-    この商品を購入しますか？（購入にはカード情報の登録が先に必要です。）
+    <div class="purchase-customer-info">
+      ご確認をお願いいたします。
+      <h3>【お届け先】</h3>
+      <div class="purchase-customer-address">
+        <b>郵便番号</b>
+      </div>
+      <div class="customer-address">
+        <%= current_customer.residence.postal_code %>
+      </div>
+      <div class="purchase-customer-address">
+        <b>都道府県</b>
+      </div>
+      <div class="customer-address">
+        <%= current_customer.residence.prefecture.name %>
+      </div>
+      <div class="purchase-customer-address">
+        <b>市町村区</b>
+      </div>
+      <div class="customer-address">
+        <%= current_customer.residence.house_num %>
+      </div>
+      <% if current_customer.residence.building_name.present? %>
+        <div class="purchase-customer-address">
+          <b>建物名</b>
+        </div>
+        <div class="customer-address">
+          <%= current_customer.residence.building_name %>
+        </div>
+      <% end %>
+      <h3>【カード情報】</h3>
+      <div class="purchase-customer-address">
+        <b>カード番号</b>
+      </div>
+      <div class="customer-address">
+        <%= "**** **** ****" + @card[:last4] %>
+      </div>
+      <div class="purchase-customer-address">
+        <b>有効期限</b>
+      </div>
+      <div class="customer-address">
+        <%= @card[:exp_month] %>/<%= @card[:exp_year] %>
+      </div>
+      </div>
+
     <div class="purchase-info">
-      <%= link_to "カード登録", new_card_path, class:"action-link"%>
-      <%= link_to "購入", shop_item_purchases_path(@shop, @item), method: :create, class:"action-link" %>
+
+        <%= link_to "マイページで編集", customer_path(current_customer), class:"action-link" %>
+        <%= link_to "購入", shop_item_purchases_path(@shop, @item), method: :create, class:"action-link" %>
     </div>
   </div>
 </div>
