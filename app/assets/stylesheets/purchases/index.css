@@ -30,3 +30,7 @@
   display: flex;
   justify-content: space-around;
 }
+
+.customer-address {
+  margin-bottom: 10px;
+}

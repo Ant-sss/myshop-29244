@@ -37,24 +37,17 @@
     
     <div class="item-show-shipping">
       <b>発送までの日数</b>
-      </div>
+    </div>
       <div class="item-show-item-shipping">
         <%= @item.shipday.name %>
       </div>
     
-    <div class="item-show-stock">
-      在庫
-      </div>
-      <div class="item-show-item-stock">
-        各サイズ３個ずつ
-      </div>
-    
     <div class="item-show-imformation">
-      注意点など
-      </div>
-      <div class="item-show-item-imformation">
-        <%= simple_format(@item.imformation) %>
-      </div>
+      <b>注意点など</b>
+    </div>
+    <div class="item-show-item-imformation">
+      <%= simple_format(@item.imformation) %>
+    </div>
     
   </div>
   <div class="item-show-bottom">
