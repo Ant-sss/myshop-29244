@@ -8,21 +8,21 @@
   </div>
   <div class="user-header">
     <% if customer_signed_in? %>
-      <%= link_to "マイページへ", customer_path(current_customer), class:"header-user" %>
-      <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
+      <i class="far fa-user-circle"></i><%= link_to "マイページへ", customer_path(current_customer), class:"header-user" %>
+      <i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
     <% elsif shopkeeper_signed_in? && current_shopkeeper.shop.nil? %>
-      引き続き店舗の設定を行いましょう！
-      <%= link_to '店舗の設定を行う', '/shops/new' %>
-      <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
+      店舗の設定を行いましょう！
+      <i class="fas fa-store-alt"></i><%= link_to '店舗の設定を行う', '/shops/new' %>
+      <i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
     <% elsif shopkeeper_signed_in? && current_shopkeeper.shop.present? %>
-      <%= link_to '店舗へ', shop_path(current_shopkeeper), class:"header-user" %>
-      <%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
+      <i class="fas fa-store"></i><%= link_to '店舗へ', shop_path(current_shopkeeper), class:"header-user" %>
+      <i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_shopkeeper_session_path, method: :delete, class:"header-user" %>
     <% else %>
       
-      <%= link_to "新規登録", new_customer_registration_path, class:"header-user" %>
-      <%= link_to "ログイン", new_customer_session_path, class:"header-user" %>
-      <%= link_to "ログイン（店主の方はこちら）", new_shopkeeper_session_path, class:"header-user" %>
-      <%= link_to "新規出店の方はこちら", new_shopkeeper_registration_path, class:"header-user" %>
+      <i class="fas fa-user-plus"></i><%= link_to "新規登録", new_customer_registration_path, class:"header-user" %>
+      <i class="fas fa-store-alt"></i><%= link_to "新規出店の方はこちら", new_shopkeeper_registration_path, class:"header-user" %>
+      <i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_customer_session_path, class:"header-user" %>
+      <i class="fas fa-store"></i><%= link_to "ログイン（店主）", new_shopkeeper_session_path, class:"header-user" %>
     <% end %>
   </div>
   </div>
