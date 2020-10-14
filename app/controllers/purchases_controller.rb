@@ -27,6 +27,10 @@ class PurchasesController < ApplicationController
       )
 
       Purchase.create(item_id: params[:item_id], customer_id: current_customer.id)
+
+      @item.decrement(:stock, 1)
+      @item.save
+      
       redirect_to done_shop_item_purchases_path
     else 
       redirect_to new_card_path
