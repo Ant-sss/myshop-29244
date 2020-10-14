@@ -180,5 +180,12 @@
   margin-right: 10px;
 }
 
+.sold-out {
+  margin-left: 10px;
+  padding: 0 4px;
+  background-color: red;
+  color: white;
+}
+
 
 

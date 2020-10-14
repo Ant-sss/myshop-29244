@@ -78,24 +78,28 @@
       </div>
       <ul class="shops-show-items-show">
         <% @items.each do |item| %>
-        <li class="shops-show-items-list">
-          <%= link_to shop_item_path(@shop.id, item.id), class:"shops-show-item-link" do %>
-            <div class="shops-show-items-image">                
-              <%= image_tag item.image, class: "shops-show-item-image" %>
-            </div>
-            <div class="shops-show-items-detail">
-              <div class="shops-show-items-name">
-                <%= item.name %>
+          <li class="shops-show-items-list">
+            <%= link_to shop_item_path(@shop.id, item.id), class:"shops-show-item-link" do %>
+              <div class="shops-show-items-image">                
+                <%= image_tag item.image, class: "shops-show-item-image" %>
               </div>
-              <div class="shops-show-items_price">
-                ￥<%= item.price %>
+              <div class="shops-show-items-detail">
+                <div class="shops-show-items-name">
+                  <%= item.name %>
+                </div>
+                <div class="shops-show-items_price">
+                  ￥<%= item.price %>
+                </div>
+                <% if item.stock == 0 %>
+                  <div class="sold-out">
+                    <b>完売</b>
+                  </div>
+                <% end %>
               </div>
-            </div>
-          <% end %>
+            <% end %>
           </li>
         <% end %>
       </ul>
-      </div>
     </div>
   </div>
 </div>

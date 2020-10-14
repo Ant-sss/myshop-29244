@@ -59,7 +59,13 @@
   </div>
   <div class="item-show-bottom">
     <div class="item-show-purchase">
-      <%= link_to "購入", shop_item_purchases_path(@shop, @item), class:"action-link"%>
+      <% if @item.stock != 0 %>
+        <%= link_to "購入", shop_item_purchases_path(@shop, @item), class:"action-link"%>
+      <% elsif @item.stock == 0 %>
+        <div class="item-sold-out">
+          <b>完売</b>
+        </div>
+      <% end %>
     </div>
   </div>
 
