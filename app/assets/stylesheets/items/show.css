@@ -118,13 +118,8 @@
   margin-bottom: 20px;
 }
 
-
-.item-show-bottom {
-  width: 650px;
-}
-
 .item-show-purchase {
-  margin: 20px;
+  margin: 20px 220px 20px 220px;
 }
 .item-show-item-purchase {
   background-color: #FFFFFF;
@@ -210,4 +205,11 @@
 
 .item-comment-text p {
   margin-top: 2px;
+}
+
+.item-sold-out {
+  padding: 5px 15px 5px 15px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
 }

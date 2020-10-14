@@ -41,7 +41,14 @@
       <div class="item-show-item-shipping">
         <%= @item.shipday.name %>
       </div>
-    
+
+    <div class="item-show-size">
+      <b>出品数（在庫数）</b>
+    </div>
+      <div class="item-show-item-size">
+        <%= @item.stock %>
+      </div>
+
     <div class="item-show-imformation">
       <b>注意点など</b>
     </div>
@@ -52,7 +59,13 @@
   </div>
   <div class="item-show-bottom">
     <div class="item-show-purchase">
-      <%= link_to "購入", shop_item_purchases_path(@shop, @item), class:"action-link"%>
+      <% if @item.stock != 0 %>
+        <%= link_to "購入", shop_item_purchases_path(@shop, @item), class:"action-link"%>
+      <% elsif @item.stock == 0 %>
+        <div class="item-sold-out">
+          <b>完売</b>
+        </div>
+      <% end %>
     </div>
   </div>
 
