@@ -36,8 +36,10 @@ ja:
         email: メールアドレス
         birthday: 生年月日
         password: パスワード
+        customer: 情報
+        password_confirmation: 確認用パスワード
       
-      address:
+      residence:
         city: 市町村区
         house_num: 番地
         postal_code: 郵便番号

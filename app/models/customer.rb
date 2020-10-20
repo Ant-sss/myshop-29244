@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
         PASSWORD_REGEX = /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/
-        NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
+        NAME_REGEX = /[ぁ-んァ-ン一-龥]/
         PHONE_REGEX = /[0-9]{11}/
         with_options presence: true do
           validates :family_name, :first_name, format: { with: NAME_REGEX }
