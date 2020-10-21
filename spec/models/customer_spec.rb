@@ -48,7 +48,7 @@ RSpec.describe Customer, type: :model do
         @customer.valid?
         expect(@customer.errors.full_messages).to include("電話番号が正しくありません")
       end
-      it '電話番号が11桁以下だと登録できない' do
+      it '電話番号が10桁以下だと登録できない' do
         @customer.phone_num = "0901234567"
         @customer.valid?
         expect(@customer.errors.full_messages).to include("電話番号が正しくありません")

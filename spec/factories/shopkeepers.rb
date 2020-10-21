@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :shopkeeper do
     family_name { "田中" }
     first_name { "太郎" }
-    email { test@test.com }
+    email { "test@test" }
     password { "aaa000" }
     password_confirmation { password }
     phone_num { "09012345678" }
