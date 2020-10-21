@@ -2,29 +2,6 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
-      
-  activerecord:
-    attributes:
-      shopkeeper:
-        family_name: 苗字
-        first_name: 名前
-        phone_num: 電話番号
-        email: メールアドレス
-        birthday: 生年月日
-        password: パスワード
-      
-      address:
-        city: 市町村区
-        house_num: 番地
-        postal_code: 郵便番号
-        prefecture_id: 都道府県
-
-    errors:
-      format: "%{attribute}%{message}"
-      messages: 
-        invalid: が正しくありません
-        other_than: を選択してください
-        not_a_number: は半角数字で入力してください
         
   activerecord:
     attributes:
@@ -34,9 +11,26 @@ ja:
         first_name: 名前
         phone_num: 電話番号
         email: メールアドレス
+        birthday: 生年月日f
+        password: パスワード
+        customer: 情報
+        password_confirmation: 確認用パスワード
+              
+      shopkeeper:
+        family_name: 苗字
+        first_name: 名前
+        phone_num: 電話番号
+        email: メールアドレス
         birthday: 生年月日
         password: パスワード
+        password_confirmation: 確認用パスワード
       
+      residence:
+        city: 市町村区
+        house_num: 番地
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+
       address:
         city: 市町村区
         house_num: 番地

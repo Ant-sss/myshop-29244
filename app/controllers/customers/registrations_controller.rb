@@ -36,6 +36,10 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   def residence_params
     params.require(:residence).permit(:postal_code, :prefecture_id, :city, :house_num, :building_name)
   end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
   # GET /resource/sign_up
   # def new
   #   super
